@@ -859,16 +859,6 @@ class S_O_L_L_Y(BaseBot):
           self.following_username = None
           await self.highrise.chat("حاضر")
 
-      if message.lower().startswith(("تعال")):
-        user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]):
-          target_username = ["S_O_L_L_Y","luciferEgypt","_xA7m3d","ABO_EL3ZZ"]
-          if target_username.lower() == self.following_username:
-              await self.highrise.chat(f"اهدى ها {user.username}.")
-          else:
-              self.following_username = target_username
-              await self.follow_user(target_username.id)
-
       if message.lower().startswith(("تف @","تف على @","تف علي @")):
         user_privileges = await self.highrise.get_room_privilege(user.id)
         if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]):
