@@ -164,19 +164,17 @@ class S_O_L_L_Y(BaseBot):
 
     async def on_user_join(self, user: User, position: Position) -> None:
       if user.username in ["luciferEgypt"]:
-        await self.highrise.chat(f"صاحب الروم جااا {user.username}")
-      if user.username == "_xA7m3d":
-        await self.highrise.chat("دخل صاحب البوت")
+        await self.highrise.chat(f"وصلت الحكومه 🫡❤️ {user.username}")
+      if user.username in ["N_1K"]:
+        await self.highrise.chat(f"وصلت المديره 🫡❤️ {user.username}")
+      if user.username in ["ABO_EL3ZZ"]:
+        await self.highrise.chat(f"وصل ابو العز 🫡❤️ {user.username}")
+      if user.username in ["S_O_L_L_Y","_xA7m3d"]:
+        await self.highrise.chat(f"دخل صاحب البوت 🫡❤️ {user.username}")
 
-      user_privileges = await self.highrise.get_room_privilege(user.id)
-      if (user_privileges.moderator):
-        await self.highrise.chat(f"دخل المشرف اقوى تحيه♥❤🫡 {user.username}")
-      if (user_privileges.designer):
-        await self.highrise.chat(f"دخل المصمم اقوى تحيه♥❤🫡 {user.username}")
-
-      if user.username not in ["_xA7m3d","luciferEgypt"]:
+      if user.username not in ["_xA7m3d","luciferEgypt","ABO_EL3ZZ","N_1K","S_O_L_L_Y","_xA7m3d"]:
         await self.highrise.send_whisper(user.id, "ولكم اتمنى منك دعوه لاخوتنا في فلسطين🇵🇸🖤🇬") 
-        await self.highrise.chat(f"هلا حتا تخلي الكل يرقص اعطيني 10g {user.username}")
+        await self.highrise.chat(f"هلا حتى تخلي الكل يرقص اعطيني 10 جولد {user.username}")
         await self.highrise.chat(f"للأوامر اكتب (اوامر) {user.username}")
         await self.highrise.react("wave", user.id)
 
@@ -197,19 +195,12 @@ class S_O_L_L_Y(BaseBot):
         await self.highrise.chat(f"راح {user.username} مع الرياح")
         await self.highrise.send_emote("emote-sad")
 
-        if user.username == "_xA7m3d":
+        if user.username in ["S_O_L_L_Y","_xA7m3d"]:
           await  self.highrise.chat(f"خرج {user.username} صاحب البوت💔💔")
           await self.highrise.send_emote("emote-sad")
 
         if user.username in ["luciferEgypt"]:
           await self.highrise.chat(f"خرج {user.username} صاحب الروم💔😔")
-          await self.highrise.send_emote("emote-sad")
-        user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator):
-          await self.highrise.chat(f"خرج {user.username} مشرف الروم💔😔")
-          await self.highrise.send_emote("emote-sad")
-        if (user_privileges.designer):
-          await self.highrise.chat(f"خرج {user.username} مصمم الروم💔😔")
           await self.highrise.send_emote("emote-sad")
 
         try:
@@ -232,17 +223,15 @@ class S_O_L_L_Y(BaseBot):
     #لو عايز ينقلك لما تدفع للبوت
     async def on_tip(self, sender: User, receiver: User, tip: CurrencyItem | Item) -> None:
       if tip.amount == 10 and receiver.username in ["Y__N1_bot"]:
-        await asyncio.sleep(1)
-      try:
+        try:
           emote_id = random.choice(self.dances)
           roomUsers = (await self.highrise.get_room_users()).content
           for roomUser, _ in roomUsers:       
             await self.highrise.send_emote(emote_id, roomUser.id)
-      except:
+        except:
           print(f"{emote_id}")
 
       if tip.amount == 5 and receiver.username in ["Y__N1_bot"]:
-        await asyncio.sleep(1)
         await self.highrise.teleport(sender.id, Position(2.5, 19.0, 0.5, 'FrontRight'))
 
 
@@ -410,7 +399,9 @@ class S_O_L_L_Y(BaseBot):
         for item in response.outfit:
             await self.highrise.chat(item.id)
 
-      if message.startswith(("React", "react", "وزع")) and user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]:
+      if message.startswith(("React", "react", "وزع")):
+        user_privileges = await self.highrise.get_room_privilege(user.id)
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]):
           command_parts = message.split()
           num_reactions = 1
           reaction_name = None
@@ -482,13 +473,13 @@ class S_O_L_L_Y(BaseBot):
           if target_username not in ["S_O_L_L_Y"]:
             await self.teleport_user_next_to(target_username, user)
 
-      if message in ["نزلني","دور 1","نزلنى"]:
+      if message in ["نزلني","دور 1","نزلنى","تحت"]:
         try:
             await self.highrise.teleport(f"{user.id}", Position(x=16.5, y=0.25, z=29.5, facing='FrontRight'))
         except:
           print("error 3")
 
-      if  message in ["طلعني","صعدني","صعدنى","طلعنى"]:
+      if  message in ["طلعني","صعدني","صعدنى","طلعنى","فوق"]:
         try:
             await self.highrise.teleport(f"{user.id}", Position(x=16.5, y=8.350000381469727, z=29.5, facing='FrontRight'))
         except:
@@ -543,6 +534,8 @@ class S_O_L_L_Y(BaseBot):
             print(f"Error: {e}")
       #لو عايز الروم كلها ترقص رقصه عشوائيه
       if message.startswith(("Dance all","dance all","!Dance all","!dance all","رقصنا","All 0","all 0","0 All","0 all")):
+        user_privileges = await self.highrise.get_room_privilege(user.id)
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]):
           emote_id = random.choice(self.dances)
           roomUsers = (await self.highrise.get_room_users()).content
           for roomUser, _ in roomUsers:
@@ -770,14 +763,18 @@ class S_O_L_L_Y(BaseBot):
            await self.highrise.send_emote("emote-kiss", roomUser.id)
 
       if message.startswith("زومبي"):
-        roomUsers = (await self.highrise.get_room_users()).content
-        for roomUser, _ in roomUsers:
-          await self.highrise.send_emote("emote-zombierun", roomUser.id)
+        user_privileges = await self.highrise.get_room_privilege(user.id)
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]):
+          roomUsers = (await self.highrise.get_room_users()).content
+          for roomUser, _ in roomUsers:
+            await self.highrise.send_emote("emote-zombierun", roomUser.id)
 
       if message.startswith("ضفدع"):
-        roomUsers = (await self.highrise.get_room_users()).content
-        for roomUser, _ in roomUsers:
-          await self.highrise.send_emote("emote-frog", roomUser.id)
+        user_privileges = await self.highrise.get_room_privilege(user.id)
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]):
+          roomUsers = (await self.highrise.get_room_users()).content
+          for roomUser, _ in roomUsers:
+            await self.highrise.send_emote("emote-frog", roomUser.id)
 
 
       if message.lstrip().startswith(("add","!tele","انقل")):
@@ -861,6 +858,32 @@ class S_O_L_L_Y(BaseBot):
       elif message.lower() == "توقف":
           self.following_username = None
           await self.highrise.chat("حاضر")
+
+      if message.lower().startswith(("تعال")):
+        user_privileges = await self.highrise.get_room_privilege(user.id)
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]):
+          target_username = ["S_O_L_L_Y","luciferEgypt","_xA7m3d","ABO_EL3ZZ"]
+          if target_username.lower() == self.following_username:
+              await self.highrise.chat(f"اهدى ها {user.username}.")
+          else:
+              self.following_username = target_username
+              await self.follow_user(target_username.id)
+
+      if message.lower().startswith(("تف @","تف على @","تف علي @")):
+        user_privileges = await self.highrise.get_room_privilege(user.id)
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","luciferEgypt","_xA7m3d"]):
+          target_username = message.split("@")[1].strip()
+
+          if target_username.lower() == self.following_username:
+              await self.highrise.chat(f"ثواني بتف على واحد يسطا.")
+          else:
+            self.following_username = target_username
+            await self.highrise.chat(f"تفووو {target_username}.")
+            # بمجرد تعيين المستخدم الذي يجب متابعته، استدعِ وظيفة follow_user
+            await self.follow_user(target_username)
+            await asyncio.sleep(2)
+            self.following_username = None
+            await self.highrise.walk_to(Position(x=15.0, y=0.0, z=9.5, facing='FrontLeft'))       
 
 
       #لو عايز تطرد حد
