@@ -206,8 +206,8 @@ class S_O_L_L_Y(BaseBot):
         try:
             emote_id = random.choice(self.dances)
             await self.highrise.send_emote(emote_id, user.id)
-        except:
-              print(f"{emote_id}")
+        except Exception as e:
+            print(f"Error: {e}")
 
 
     #لو عايز الهوست ينقل حد بيراكت
@@ -228,8 +228,8 @@ class S_O_L_L_Y(BaseBot):
           roomUsers = (await self.highrise.get_room_users()).content
           for roomUser, _ in roomUsers:       
             await self.highrise.send_emote(emote_id, roomUser.id)
-        except:
-          print(f"{emote_id}")
+        except Exception as e:
+           print(f"Error: {e}")
 
       if tip.amount == 5 and receiver.username in ["Y__N1_bot"]:
         await self.highrise.teleport(sender.id, Position(2.5, 19.0, 0.5, 'FrontRight'))
@@ -664,21 +664,21 @@ class S_O_L_L_Y(BaseBot):
           emote_id = "emote-kiss"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "شكرا" in message:
         try:
           emote_id = "emote-kiss"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "راب" in message:
         try:
           emote_id = "idle-dance-casual"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "لا" in message:
         try:
@@ -692,70 +692,70 @@ class S_O_L_L_Y(BaseBot):
           emote_id = "emote-teleporting"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "قاتل" in message:
         try:
           emote_id = "emote-swordfight"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "You got a tip!" in message:
         try:
           emote_id = "dance-tiktok2"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "غني" in message:
         try:
           emote_id = "idle_singing"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "حارة" in message:
         try:
           emote_id = "emote-hot"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "تسس" in message:
         try:
           emote_id = "emote-snake"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "😂" in message:
         try:
           emote_id = "emote-laughing"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "يس" in message:
         try:
           emote_id = "emote-yes"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "ولكم" in message:
         try:
           emote_id = "emote-bow"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if "اوف" in message:
         try:
           emote_id = "emote-sad"
           await self.highrise.send_emote(emote_id, user.id)
         except:
-          print(f"{emote_id}")
+          print("error 3")
 
       if message.startswith("بوسة"):
         roomUsers = (await self.highrise.get_room_users()).content
