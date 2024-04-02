@@ -215,9 +215,16 @@ class S_O_L_L_Y(BaseBot):
 
       if reaction == "thumbs":
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","_xA7m3d","luciferEgypt"] and user.username not in ["Y__N1_bot"]):
+        if (user_privileges.moderator and user.username not in ["Y__N1_bot"]) or (user.username in ["S_O_L_L_Y","_xA7m3d","luciferEgypt"]):
           target_username = receiver.username
           await self.teleport_user_next_to(target_username, user)
+
+        room_users = (await self.highrise.get_room_users()).content
+        if user in [target_user for target_user, _ in room_users]:
+            try:
+                await self.highrise.react(reaction, user.id)
+            except Exception as e:
+                print(f"{self} could not send the reaction {reaction} back to {user}: {e}")
 
 
     #لو عايز ينقلك لما تدفع للبوت

@@ -224,7 +224,7 @@ class S_O_L_L_Y(BaseBot):
 
       if reaction == "thumbs":
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","5RI___"] and user.username not in ["Error_242"]):
+        if (user_privileges.moderator and user.username not in ["Error_242"]) or (user.username in ["S_O_L_L_Y","5RI___"]):
           target_username = receiver.username
           await self.teleport_user_next_to(target_username, user)
 
