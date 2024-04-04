@@ -42,20 +42,23 @@ class LatinStar(BaseBot):
        }
           await self.highrise.teleport(user_dict["id"], user_dict["position"])
 
-    async def on_user_join(self, user: User) -> None:
+    async def on_user_join(self, user: User, position: Position) -> None:
+      #يحيك
         await self.highrise.chat(f"welcome to nss party! enjoy the vibes and the music we are providing for you guys! Also remember to buy our shirts bitten by fear to support nss!")
+        await self.highrise.react("heart", user.id)
 
+        # تشغيل رقصة للبوت عند دخول المستخدم
         try:
-            emote_id = random.choice(self.dances)
-            await self.highrise.send_emote(emote_id)
+              emote_id = random.choice(self.dances)
+              await self.highrise.send_emote(emote_id)
         except Exception as e:
-            print(f"Error: {e}")
-
+              print(f"Error: {e}")
+        # تشغيل رقصة للاعب عند دخول المستخدم
         try:
-           emote_id = random.choice(self.dances)
-           await self.highrise.send_emote(emote_id, user.id)
+             emote_id = random.choice(self.dances)
+             await self.highrise.send_emote(emote_id, user.id)
         except Exception as e:
-           print(f"Error: {e}")
+             print(f"Error: {e}")
 
 
     async def on_reaction(self, user: User, reaction: Reaction, receiver: User) -> None:
@@ -99,13 +102,13 @@ class LatinStar(BaseBot):
         await self.highrise.send_whisper(user.id,f"The bot wallet contains {wallet[0].amount} {wallet[0].type}")
         
       if message.startswith("back") and user.username in ["S_O_L_L_Y","500lbs","LatinStar","louiiz"]:
-        await self.highrise.walk_to(Position(x=8.0, y=1.0, z=7.0, facing='FrontRight'))
+        await self.highrise.walk_to(Position(x=19.5, y=0.25, z=9.5, facing='FrontLeft'))
 
       if message in ["Vip","vip","!Vip","!vip","Vip 1","vip 1","!Vip 1","!vip 1"]:
         user_privileges = await self.highrise.get_room_privilege(user.id)
         if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","500lbs","LatinStar","louiiz"]):
           try:
-            await self.highrise.teleport(f"{user.id}", Position(x=5.5, y=3.75, z=3.5, facing='FrontRight'))
+            await self.highrise.teleport(f"{user.id}", Position(x=1.5, y=9.25, z=2.5, facing='FrontRight'))
           except:
             print("error 3")
 
