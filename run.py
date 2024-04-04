@@ -26,7 +26,7 @@ class RunBot():
   bot_file_1 = "2M0_0"
   bot_class_1 = "_2M0"
 
-  room_id_2 = "65f6e827a10d3188198b6e2d"
+  room_id_2 = "65f87f8ef3a3610c2b2e373b"
   bot_token_2 = "a051d634b029aeff086df7bfd8e3b80ff44778390d4084335e6afa0d23d8d5f2"
   bot_file_2 = "500lbsbot"
   bot_class_2 = "LatinStar"
