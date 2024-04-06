@@ -64,7 +64,6 @@ class S_O_L_L_Y(BaseBot):
                 print(f"{self} could not send the reaction {reaction} back to {user}: {e}")
 
     async def on_chat(self, user: User, message: str) -> None:
-      self.logger.info(f"{user.username}: {message}")
 
       input_emote = message.strip()
       matched_emote = process.extractOne(input_emote, self.emote_dict.keys(), scorer=fuzz.ratio)
