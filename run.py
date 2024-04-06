@@ -21,45 +21,70 @@ class WebServer():
 
 
 class RunBot():
-  room_id_1 = "65a8fa17a90c302562850e1f"
-  bot_token_1 = "44342a3172254cede02bd56fef6139fd1ae136736a187310bcb310de8fa12dcc"
-  bot_file_1 = "2M0_0"
-  bot_class_1 = "_2M0"
+  room_id_1 = "64f8377f2afd3ea261a8843c"
+  bot_token_1 = "99767eccc91cb0c9cd972625b565e0eaab718843d49a782a97eafb42181fb468"
+  bot_file_1 = "SOLLY_6CORNERS"
+  bot_class_1 = "S_O_L_L_Y"
 
-  room_id_2 = "65f87f8ef3a3610c2b2e373b"
-  bot_token_2 = "a051d634b029aeff086df7bfd8e3b80ff44778390d4084335e6afa0d23d8d5f2"
-  bot_file_2 = "500lbsbot"
-  bot_class_2 = "LatinStar"
+  room_id_2 = "65da4ad0b493c80d123a5a49"
+  bot_token_2 = "0e933adc954c6f3af955fdbcc07c4e9d483616476d04b277ac1576209119db5a"
+  bot_file_2 = "SOLLY_15"
+  bot_class_2 = "S_O_L_L_Y"
 
-  room_id_3 = "65da4ad0b493c80d123a5a49"
-  bot_token_3 = "e6c200d977d2c0d6acf349db72c443eefa369b23e4d9c5c1390c2ba23ae3f581"
-  bot_file_3 = "dj_file.dj_bot"
+  room_id_3 = "64f31b23d6a5592093cd6232"
+  bot_token_3 = "35a8265223577448afb23fc7feffba2c381c3ba159963daf43742f37ee17043b"
+  bot_file_3 = "SOLLY_CHAIR"
   bot_class_3 = "S_O_L_L_Y"
-  
-  room_id_4 = "65f353c5e3a877ee994ff290"
-  bot_token_4 = "827c88047b3013ac00908dfe0e7f7c2651aa09157a5988b544bcdec31c1b1b28"
-  bot_file_4 = "Error_242"
+
+  room_id_4 = "65944fe8dd633f3c4e767d9b"
+  bot_token_4 = "b5680cc0049fa8e4fc9d775ce44b2c309f78132439803473c4155f0c4702f6cc"
+  bot_file_4 = "SOLLY_MAZE_1"
   bot_class_4 = "S_O_L_L_Y"
-  
-  room_id_5 = "65da4ad0b493c80d123a5a49"
-  bot_token_5 = "b5a7c1716ee3679e3d4bac2f5494cdeb0ac42fad5ddc6b83db914658c1f3c3d3"
-  bot_file_5 = "SOLLY_PAG"
+
+  room_id_5 = "65950c96b132b36c701b00e5"
+  bot_token_5 = "c65a8d69a22db0d801c2bac9d4105ccaed379bb74aa74a95c27bdf803b2ae200"
+  bot_file_5 = "SOLLY_MAZE_2"
   bot_class_5 = "S_O_L_L_Y"
 
-  room_id_6 = "651a8155f4097cf126f83ade"
-  bot_token_6 = "b29f9d78ab9d8146e5cdf594817a7fc6418abee139d00d594b5d6f0214954ff1"
-  bot_file_6 = "Y__N1_bot"
+  room_id_6 = "65966a9d3a675b14db727297"
+  bot_token_6 = "a1b85046d7b011d0333499c2339f48a665d8d99eb5a71bdf1aa05fe644d6945f"
+  bot_file_6 = "SOLLY_MAZE_3"
   bot_class_6 = "S_O_L_L_Y"
 
-  room_id_7 = "6601d93c46461f7d016e463a"
-  bot_token_7 = "1241317b3ddaa4547d5ebf251d53191a2934303402b6b19d05633b0770c1691f"
-  bot_file_7 = "VOIDBDAY"
-  bot_class_7 = "Felintosa"
+  room_id_7 = "65b675049b664e06f0dbfb3b"
+  bot_token_7 = "426ab94db6e06d23926fc15cef0b4587fb8208450ad495b570dcbdd8445c38ce"
+  bot_file_7 = "SOLLY_MAZE_4"
+  bot_class_7 = "S_O_L_L_Y"
 
-  room_id_8 = "6608086dbe355d71f528d43d"
-  bot_token_8 = "521ecdf41619739963c1d287d9894ff9ce9dfceecda22121c6b95f9c5b4d0757"
-  bot_file_8 = "_TRUE_LOVE"
-  bot_class_8 = "ROSIE_LO"
+  room_id_8 = "65c7a4e1bc15dde88f14f8bf"
+  bot_token_8 = "436b330ed703a66043b74df9c66799664a39f2fd37328d950acdfeb7e4ab9b90"
+  bot_file_8 = "SOLLY_MAZE_5"
+  bot_class_8 = "S_O_L_L_Y"
+
+  room_id_9 = "64f31af1a41886bd2b5e353f"
+  bot_token_9 = "98219c34520530386b542133ad6a6345ef61bb44f440a13a31525a57a401e3df"
+  bot_file_9 = "SOLLY_MAZE"
+  bot_class_9 = "S_O_L_L_Y"
+
+  room_id_10 = "65f82e18e3a877ee999ad831"
+  bot_token_10 = "a01b247e3b361d82dca5f25eacebf7f7e877b6bd0496b3b07b2fc0a830d8ed6f"
+  bot_file_10 = "SOLLY_MURDER"
+  bot_class_10 = "S_O_L_L_Y"
+
+  room_id_11 = "65da4ad0b493c80d123a5a49"
+  bot_token_11 = "b5a7c1716ee3679e3d4bac2f5494cdeb0ac42fad5ddc6b83db914658c1f3c3d3"
+  bot_file_11 = "SOLLY_PAG"
+  bot_class_11 = "S_O_L_L_Y"
+
+  room_id_12 = "64f4300f997a6c7df1974127"
+  bot_token_12 = "09b5c08f4571c0194ab303c3548c1d06e4dcd012c84266c4792206ad894b8792"
+  bot_file_12 = "SOLLY_PARTY"
+  bot_class_12 = "S_O_L_L_Y"
+
+  room_id_13 = "65da4ad0b493c80d123a5a49"
+  bot_token_13 = "e6c200d977d2c0d6acf349db72c443eefa369b23e4d9c5c1390c2ba23ae3f581"
+  bot_file_13 = "dj_file.dj_bot"
+  bot_class_13 = "S_O_L_L_Y"
 
 
   def __init__(self) -> None:
@@ -73,21 +98,36 @@ class RunBot():
         BotDefinition(
             getattr(import_module(self.bot_file_3), self.bot_class_3)(),
             self.room_id_3, self.bot_token_3),
+        BotDefinition(
+            getattr(import_module(self.bot_file_4), self.bot_class_4)(),
+            self.room_id_4, self.bot_token_4),
+        BotDefinition(
+            getattr(import_module(self.bot_file_5), self.bot_class_5)(),
+            self.room_id_5, self.bot_token_5),
+        BotDefinition(
+            getattr(import_module(self.bot_file_6), self.bot_class_6)(),
+            self.room_id_6, self.bot_token_6),
+        BotDefinition(
+            getattr(import_module(self.bot_file_7), self.bot_class_7)(),
+            self.room_id_7, self.bot_token_7),
+        BotDefinition(
+            getattr(import_module(self.bot_file_8), self.bot_class_8)(),
+            self.room_id_8, self.bot_token_8),
+        BotDefinition(
+            getattr(import_module(self.bot_file_9), self.bot_class_9)(),
+            self.room_id_9, self.bot_token_9),
+        BotDefinition(
+            getattr(import_module(self.bot_file_10), self.bot_class_10)(),
+            self.room_id_10, self.bot_token_10),
       BotDefinition(
-          getattr(import_module(self.bot_file_4), self.bot_class_4)(),
-          self.room_id_4, self.bot_token_4),
+          getattr(import_module(self.bot_file_11), self.bot_class_11)(),
+          self.room_id_11, self.bot_token_11),
       BotDefinition(
-          getattr(import_module(self.bot_file_5), self.bot_class_5)(),
-          self.room_id_5, self.bot_token_5),
+          getattr(import_module(self.bot_file_12), self.bot_class_12)(),
+          self.room_id_12, self.bot_token_12),
       BotDefinition(
-          getattr(import_module(self.bot_file_6), self.bot_class_6)(),
-          self.room_id_6, self.bot_token_6),
-      BotDefinition(
-          getattr(import_module(self.bot_file_7), self.bot_class_7)(),
-          self.room_id_7, self.bot_token_7),
-      BotDefinition(
-          getattr(import_module(self.bot_file_8), self.bot_class_8)(),
-          self.room_id_8, self.bot_token_8)
+          getattr(import_module(self.bot_file_13), self.bot_class_13)(),
+          self.room_id_13, self.bot_token_13)
     ]  # More BotDefinition classes can be added to the definitions list
 
   def run_loop(self) -> None:

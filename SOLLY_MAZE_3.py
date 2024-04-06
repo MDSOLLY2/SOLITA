@@ -37,12 +37,7 @@ from asyncio import run as arun
 import asyncio
 import random
 
-class ROSIE_LO(BaseBot):
-    greetings = [ "❤️COME IN COME IN FIND LOVE, CHAT AND ENJOY THE ATOMSPHERE EVERYONE💕",
-
-
-        # ... (ترحيبات أخرى هنا)
-    ]
+class S_O_L_L_Y(BaseBot):
     dances = [ "emote-superpose", "emote-laughing", "emote-kiss", "emote-wave", "emote-teleporting", "emote-hot ", "emote-greedy", "emote-float", "emote-confused", "emote-swordfight", "emote-model", "emote-charging", "emote-snake", "emote-lust", "emote-bow", "emote-curtsy", "emote-snowball", "emote-snowangel", "emote-telekinesis", "emote-maniac", "emote-energyball", "emote-frog", "emote-cute","emote-pose7 ", "emote-pose8", "emote-pose1", "emote-pose3", "emote-timejump", "emote-sleigh", "emote-punkguitar", "emote-zombierun", "emote-fashionista", "emote-gravity", "emote-shy2",
 
             "emoji-celebrate", "emoji-cursing", "emoji-gagging","emoji-flex",
@@ -67,8 +62,9 @@ class ROSIE_LO(BaseBot):
       self.following_username = None
 
     async def on_start(self, session_metadata: SessionMetadata) -> None:
-      print("_TRUE_LOVE")
-      await self.highrise.walk_to(AnchorPosition(entity_id='2a0465afacb6d6d74338914c', anchor_ix=0))
+      print("SOLLY_MAZE_3")
+      self.highrise.tg.create_task(self.highrise.teleport(
+          session_metadata.user_id, Position(x=1, y=0.0, z=1.0, facing='FrontRight')))
 
 
     async def follow_user(self, target_username: str):
@@ -109,9 +105,13 @@ class ROSIE_LO(BaseBot):
 
 
     async def on_user_join(self, user: User, position: Position) -> None:
-    #يحيك
-      greeting = random.choice(self.greetings)
-      await self.highrise.chat(f"{greeting} {user.username} 💖")
+
+      #يرجعك للباب
+      await self.highrise.teleport(user.id, Position(x=1.5, y=0.0, z=1.5, facing='FrontRight'))
+
+      #يحيك
+      await self.highrise.chat(f"Welcome to Solly's maze room, U can tip 10G to the bot to play the maze. The winner will get 100G, Hope y'all enjoy and win, GL {user.username} 💖")
+      await self.highrise.chat(f"If U win, Take ScreenShot and post it with mention @S_O_L_L_Y in it to get ur prize ✨📣")
       await self.highrise.react("heart", user.id)
 
       # تشغيل رقصة للبوت عند دخول المستخدم
@@ -130,41 +130,48 @@ class ROSIE_LO(BaseBot):
 
     async def on_whisper(self, user: User, message: str) -> None:
 
-          if "1" in message:
-            try:
-              await self.highrise.chat(f"❤️COME IN COME IN FIND LOVE, CHAT AND ENJOY THE ATOMSPHERE EVERYONE💕")
-            except Exception as e:
-                print(f"Error: {e}")
+          #لو عايز تنقل الروم كله
+          if message.startswith("in all"):
+              roomUsers = (await self.highrise.get_room_users()).content
+              for roomUser, _ in roomUsers:
+                await self.highrise.teleport(f"{roomUser.id}", Position(x=5.5, y=0.25, z=12.5, facing='FrontRight'))
+
+          if message.startswith("out all"):
+              roomUsers = (await self.highrise.get_room_users()).content
+              for roomUser, _ in roomUsers:
+                await self.highrise.teleport(f"{roomUser.id}", Position(x=1.5, y=0.0, z=1.5, facing='FrontRight'))
 
 
     #لو عايز الهوست ينقل حد بيراكت
-    async def on_reaction(self, user: User, reaction: Reaction, receiver: User) -> None:    
-        user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator and user.username not in ["_TRUE_LOVE"]) or (user.username in ["S_O_L_L_Y","ROSIE.LO"]):
-                if reaction == "clap":
-                  await self.highrise.teleport(receiver.id, Position(x=19.5, y=13.0, z=9.5, facing='FrontLeft'))
-                if reaction == "thumbs":
-                  await self.highrise.teleport(receiver.id, Position(x=19.5, y=6.5, z=0.5, facing='FrontLeft'))
-                if reaction == "wave":
-                  await self.highrise.teleport(receiver.id, Position(x=0.5, y=0.25, z=19.5, facing='FrontLeft'))
-                if reaction == "wink":
-                  await self.highrise.teleport(receiver.id, Position(x=19.5, y=19.25, z=13.5, facing='FrontLeft'))
-                if reaction == "heart":
-                  target_username = receiver.username
-                  await self.teleport_user_next_to(target_username, user)
+    async def on_reaction(self, user: User, reaction: Reaction, receiver: User) -> None:
 
-        room_users = (await self.highrise.get_room_users()).content
-        if user in [target_user for target_user, _ in room_users]:
-            try:
-                await self.highrise.react(reaction, user.id)
-            except Exception as e:
-                print(f"{self} could not send the reaction {reaction} back to {user}: {e}")
+      if reaction =="heart"and user.username in ["S_O_L_L_Y","SOLLY_MAZE_3"]:
+          target_username = receiver.username
+          await self.teleport_user_next_to(target_username, user)
+
+      user_privileges = await self.highrise.get_room_privilege(user.id)
+      if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
+                if reaction == "clap":
+                  await self.highrise.teleport(receiver.id, Position(x=19.5, y=1.5, z=12.5, facing='BackLeft'))
+                if reaction == "thumbs":
+                  await self.highrise.teleport(receiver.id, Position(x=5.5, y=0.25, z=12.5, facing='FrontRight'))
+                if reaction == "wave":
+                  await self.highrise.teleport(receiver.id, Position(x=1.5, y=0.0, z=1.5, facing='FrontRight'))
+                if reaction == "wink":
+                  await self.highrise.teleport(receiver.id, Position(x=12.5, y=1.0, z=10.5, facing='FrontRight'))
+
+      room_users = (await self.highrise.get_room_users()).content
+      if user in [target_user for target_user, _ in room_users] and user.username not in ["SOLLY_MAZE_3"]:
+          try:
+              await self.highrise.react(reaction, user.id)
+          except Exception as e:
+              print(f"{self} could not send the reaction {reaction} back to {user}: {e}")
 
 
     #لو عايز ينقلك لما تدفع للبوت
     async def on_tip(self, sender: User, receiver: User, tip: CurrencyItem | Item) -> None:
-      if tip.amount > 99 and receiver.username in ["S_O_L_L_Y","_TRUE_LOVE","ROSIE.LO"]:
-          await self.highrise.teleport(sender.id, Position(x=19.5, y=19.25, z=13.5, facing='FrontLeft'))
+      if tip.amount > 9 and receiver.username in ["S_O_L_L_Y","SOLLY_MAZE_3"]:
+          await self.highrise.teleport(sender.id, Position(x=5.5, y=0.25, z=12.5, facing='FrontRight'))
 
 
     async def on_message(self, user_id: str, conversation_id: str, is_new_conversation: bool) -> None:
@@ -181,7 +188,7 @@ class ROSIE_LO(BaseBot):
         self.message_count[user.id] = 0
     # ... (باقي الأوامر هنا)
 
-      elif message.startswith(("React", "react", "وزع")) and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+      elif message.startswith(("React", "react", "وزع")) and user.username in ["S_O_L_L_Y"]:
           command_parts = message.split()
           num_reactions = 1
           reaction_name = None
@@ -222,46 +229,44 @@ class ROSIE_LO(BaseBot):
               await self.highrise.react("heart", user.id)
 
       #محفظة البوت
-      if message in ["Wallet","wallet","!Wallet","!wallet"] and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+      if message in ["Wallet","wallet","!Wallet","!wallet"] and user.username in ["S_O_L_L_Y"]:
         wallet = (await self.highrise.get_wallet()).content
         await self.highrise.send_whisper(user.id,f"The bot wallet contains {wallet[0].amount} {wallet[0].type}")
 
       #كم واحد برومك
-      if message in ["Players","players","!Players","!players"] and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+      if message in ["Players","players","!Players","!players"] and user.username in ["S_O_L_L_Y"]:
           room_users = (await self.highrise.get_room_users()).content
           await self.highrise.send_whisper(user.id,f"There are {len(room_users)} users in the room")
 
-      if message.startswith("back") and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
-        await self.highrise.walk_to(AnchorPosition(entity_id='2a0465afacb6d6d74338914c', anchor_ix=0))
+      if message.startswith("back") and user.username in ["S_O_L_L_Y"]:
+        await self.highrise.walk_to(Position(x=1, y=0.0, z=1.0, facing='FrontRight'))
 
-      if message in ["Vip","vip","!Vip","!vip"]:
+      if message in ["Host","host","!Host","!host","هوست"]:
+        user_privileges = await self.highrise.get_room_privilege(user.id)
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
           try:
-            await self.highrise.teleport(f"{user.id}", Position(x=19.5, y=19.25, z=13.5, facing='FrontLeft'))
+            await self.highrise.teleport(f"{user.id}", Position(x=12.5, y=1.0, z=10.5, facing='FrontRight'))
           except:
             print("error 3")
 
-      if message in ["Up","up","!Up","!up"]:
+      if message in ["in","play","In","Play","لعبني"]:
+        user_privileges = await self.highrise.get_room_privilege(user.id)
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
           try:
-            await self.highrise.teleport(f"{user.id}",Position(x=19.5, y=6.5, z=0.5, facing='FrontLeft'))
+            await self.highrise.teleport(f"{user.id}",Position(x=5.5, y=0.25, z=12.5, facing='FrontRight'))
           except Exception as e:
             print(f"Error: {e}")
 
-      if message in ["Up 2","up 2","!Up 2","!up 2"]:
-        try:
-          await self.highrise.teleport(f"{user.id}",Position(x=19.5, y=13.0, z=9.5, facing='FrontLeft'))
-        except Exception as e:
-          print(f"Error: {e}")
-
-      if message.startswith(("!get","get","Get","!Get")):
+      if message.startswith(("Get","get","!Get","!get")):
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","ROSIE.LO"]):
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
          target_username = message.split("@")[-1].strip()
          if target_username not in ["S_O_L_L_Y"]:
             await self.teleport_user_next_to(target_username, user)
 
-      if message in ["Down","down","!Down","!down"]:
+      if message in ["خرجني","door","Door","Out","out"]:
         try:
-            await self.highrise.teleport(f"{user.id}", Position(x=0.5, y=0.25, z=19.5, facing='FrontLeft'))
+            await self.highrise.teleport(f"{user.id}", Position(x=1.5, y=0.0, z=1.5, facing='FrontRight'))
         except:
           print("error 3")
 
@@ -320,18 +325,22 @@ class ROSIE_LO(BaseBot):
 
       if message in ["Mod","mod","!Mod","!mod"]:
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","ROSIE.LO"]):
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
           try:
             await self.highrise.send_whisper(user.id, "Mod Commands 👇👇👇")
             await self.highrise.send_whisper(user.id, "!vip 👉 tele u to vip.")
-            await self.highrise.send_whisper(user.id, "!tele + @usename + vip,up,up 2,down or start 👉 tele player to this spot. Ex.(!tele @S_O_L_L_Y vip)")
+            await self.highrise.send_whisper(user.id, "!tele + @usename + vip,down or start 👉 tele player to this spot. Ex.(!tele @S_O_L_L_Y vip)")
             await self.highrise.send_whisper(user.id, "!get + @username 👉 tele player to ur spot. Ex.(!get @S_O_L_L_Y)")
-            await self.highrise.send_whisper(user.id, "Tele ppl by react them 👉 thumbs to up, wave to down.")
+            await self.highrise.send_whisper(user.id, "Tele ppl by react them 👉 Thumb to vip, wave to down.")
+            await self.highrise.send_whisper(user.id, "kick + @username.")
+            await self.highrise.send_whisper(user.id, "ban + @username + (300,900 or 3600).")
+            await self.highrise.send_whisper(user.id, "unban + @username.")
+            await self.highrise.send_whisper(user.id, "mute + @username + (300,900 or 3600).")
           except Exception as e:
               print(f"Error: {e}")
 
       if message in ["Owner","owner","!Owner","!owner"]:
-        if user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+        if user.username in ["S_O_L_L_Y"]:
           await self.highrise.send_whisper(user.id, "Owner Commands 👇👇👇")
           await self.highrise.send_whisper(user.id, "!tip + gold 👉 to tip all room.")
           await self.highrise.send_whisper(user.id, "tip 3 1g 👉 to tip 3 random 1g each.")
@@ -1114,7 +1123,7 @@ class ROSIE_LO(BaseBot):
 
       if message.lstrip().startswith("!tele"):
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","ROSIE.LO"]):
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
           response = await self.highrise.get_room_users()
           users = [content[0] for content in response.content]
           usernames = [user.username.lower() for user in users]
@@ -1132,11 +1141,10 @@ class ROSIE_LO(BaseBot):
             return
           position_name = "".join(args[1:])
           destinations = {
-            'vip': Position(x=19.5, y=19.25, z=13.5, facing='FrontLeft'),
-            'up': Position(x=19.5, y=6.5, z=0.5, facing='FrontLeft'),
-            'up 2': Position(x=19.5, y=13.0, z=9.5, facing='FrontLeft'),
-            'down': Position(x=0.5, y=0.25, z=19.5, facing='FrontLeft'),
-            'start' : AnchorPosition(entity_id='2a0465afacb6d6d74338914c', anchor_ix=0),
+            'host': Position(x=12.5, y=1.0, z=10.5, facing='FrontRight'),
+            'in': Position(x=5.5, y=0.25, z=12.5, facing='FrontRight'),
+            'door': Position(x=1.5, y=0.0, z=1.5, facing='FrontRight'),
+            'start' : Position(x=1, y=0.0, z=1.0, facing='FrontRight'),
           }
           dest = destinations.get(position_name.lower())
           if dest is None:
@@ -1154,7 +1162,7 @@ class ROSIE_LO(BaseBot):
           pass
 
       #لو عايز توزع جولد عشوائي
-      if message == ("tip 3 1g") and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+      if message == ("tip 3 1g") and user.username in ["S_O_L_L_Y"]:
         roomUsers = (await self.highrise.get_room_users()).content
       #shuffle the list to ensure randomnesss
         random.shuffle(roomUsers)
@@ -1162,9 +1170,9 @@ class ROSIE_LO(BaseBot):
         selected_users = roomUsers[:3]
         for roomUser, _ in selected_users:
            await self.highrise.tip_user(roomUser.id, "gold_bar_1")
-           await self.highrise.chat(f"ROSIE.LO tipped {roomUser.username} 1 Gold! 💰")
+           await self.highrise.chat(f"S_O_L_L_Y tipped {roomUser.username} 1 Gold! 💰")
 
-      if message == ("tip 1 1g") and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+      if message == ("tip 1 1g") and user.username in ["S_O_L_L_Y"]:
         roomUsers = (await self.highrise.get_room_users()).content
       #shuffle the list to ensure randomnesss
         random.shuffle(roomUsers)
@@ -1172,9 +1180,9 @@ class ROSIE_LO(BaseBot):
         selected_users = roomUsers[:1]
         for roomUser, _ in selected_users:
            await self.highrise.tip_user(roomUser.id, "gold_bar_1")
-           await self.highrise.chat(f"ROSIE.LO tipped {roomUser.username} 1 Gold! 💰")
+           await self.highrise.chat(f"S_O_L_L_Y tipped {roomUser.username} 1 Gold! 💰")
 
-      if message == ("tip 2 1g") and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+      if message == ("tip 2 1g") and user.username in ["S_O_L_L_Y"]:
         roomUsers = (await self.highrise.get_room_users()).content
       #shuffle the list to ensure randomnesss
         random.shuffle(roomUsers)
@@ -1182,9 +1190,9 @@ class ROSIE_LO(BaseBot):
         selected_users = roomUsers[:2]
         for roomUser, _ in selected_users:
            await self.highrise.tip_user(roomUser.id, "gold_bar_1")
-           await self.highrise.chat(f"ROSIE.LO tipped {roomUser.username} 1 Gold! 💰")
+           await self.highrise.chat(f"S_O_L_L_Y tipped {roomUser.username} 1 Gold! 💰")
 
-      if message == ("tip 1 5g") and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+      if message == ("tip 1 5g") and user.username in ["S_O_L_L_Y"]:
         roomUsers = (await self.highrise.get_room_users()).content
       #shuffle the list to ensure randomnesss
         random.shuffle(roomUsers)
@@ -1192,7 +1200,7 @@ class ROSIE_LO(BaseBot):
         selected_users = roomUsers[:1]
         for roomUser, _ in selected_users:
            await self.highrise.tip_user(roomUser.id, "gold_bar_5")
-           await self.highrise.chat(f"ROSIE.LO tipped {roomUser.username} 5 Gold! 💰")
+           await self.highrise.chat(f"S_O_L_L_Y tipped {roomUser.username} 5 Gold! 💰")
 
 
       if message.startswith("!tip "):
@@ -1204,7 +1212,7 @@ class ROSIE_LO(BaseBot):
         except ValueError:
             await self.highrise.send_whisper(user.id, "Invalid amount.")
             return
-        if user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+        if user.username in ["S_O_L_L_Y"]:
             response = await self.highrise.get_room_users()
             num_users = len(response.content)
             total_gold = tip_amount * num_users
@@ -1222,7 +1230,7 @@ class ROSIE_LO(BaseBot):
 
       #لو عايز يتبع حد
       if message.lower().startswith(('Follow @','follow @','!Follow @','!follow @')):
-        if user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+        if user.username in ["S_O_L_L_Y"]:
           target_username = message.split("@")[1].strip()
 
           if target_username.lower() == self.following_username:
@@ -1232,7 +1240,7 @@ class ROSIE_LO(BaseBot):
               await self.highrise.chat(f"okay ❤")
               # بمجرد تعيين المستخدم الذي يجب متابعته، استدعِ وظيفة follow_user
               await self.follow_user(target_username)
-      elif message.lower() == "stop" and user.username in ["S_O_L_L_Y","ROSIE.LO"]:
+      elif message.lower() == "stop" and user.username in ["S_O_L_L_Y"]:
           self.following_username = None
           await self.highrise.chat("okay ❤")
 
@@ -1240,7 +1248,7 @@ class ROSIE_LO(BaseBot):
       #لو عايز تطرد حد
       if message.startswith(('Kick','kick','!Kick','!kick')):
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","ROSIE.LO"]):
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
             pass
         else:
             await self.highrise.chat("You do not have permission to use this command.")
@@ -1278,7 +1286,7 @@ class ROSIE_LO(BaseBot):
       #لو عايز تبند حد
       if message.startswith(('Ban','ban','!Ban','!ban')):
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","ROSIE.LO"]):
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
               parts = message.split()
               if len(parts) != 3:
                   await self.highrise.chat("Invalid Ban command format.")
@@ -1313,7 +1321,7 @@ class ROSIE_LO(BaseBot):
       #لو عايز تشيل بان عن حد
       if message.startswith(('Unban','unban','!Unban','!unban')):
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","ROSIE.LO"]):
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
             parts = message.split()
             if len(parts) != 2:
                 await self.highrise.chat("Invalid Unban command format.")
@@ -1343,7 +1351,7 @@ class ROSIE_LO(BaseBot):
       #لو عايز تعمل ميوت لحد
       if message.startswith(('Mute','mute','!Mute','!mute')):
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","ROSIE.LO"]):
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
               parts = message.split()
               if len(parts) != 3:
                   await self.highrise.chat("Invalid Mute command format.")

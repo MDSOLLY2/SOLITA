@@ -128,27 +128,6 @@ class S_O_L_L_Y(BaseBot):
               await asyncio.sleep(1)  # انتظر 5 ثواني مثلاً
 
 
-    async def teleport_user_next_to(self, target_username: str, requester_user: User):
-      room_users = await self.highrise.get_room_users()
-      requester_position = None
-      for user, position in room_users.content:
-        if isinstance(position, AnchorPosition):
-            return
-        if user.id == requester_user.id:
-          requester_position = position
-          break
-      for user, position in room_users.content:
-        if user.username.lower() == target_username.lower(): 
-          z = requester_position.z 
-          new_z = z + 1 
-
-          user_dict = {
-            "id": user.id,
-            "position": Position(requester_position.x, requester_position.y, new_z, requester_position.facing)
-       }
-          await self.highrise.teleport(user_dict["id"], user_dict["position"])
-
-
     async def on_user_join(self, user: User, position: Position) -> None:
       await self.highrise.chat(f"ولكم اتمنى منك دعوه لاخوتنا في فلسطين🇵🇸🖤")
       await self.highrise.chat("هلا وغلا تحب تشرب ايه ؟")
@@ -167,7 +146,7 @@ class S_O_L_L_Y(BaseBot):
     async def on_reaction(self, user: User, reaction: Reaction, receiver: User) -> None:
 
       room_users = (await self.highrise.get_room_users()).content
-      if user in [target_user for target_user, _ in room_users]:
+      if user in [target_user for target_user, _ in room_users] and user.username not in ["SOLLY_PAG"]:
           try:
               await self.highrise.react(reaction, user.id)
           except Exception as e:
@@ -381,13 +360,6 @@ class S_O_L_L_Y(BaseBot):
 
       if message.startswith("back") and user.username in ["S_O_L_L_Y"]:
         await self.highrise.walk_to(AnchorPosition(entity_id='65dbb32800000000000004ed', anchor_ix=0))
-
-      if message.startswith(("جيبلي","اسحب")):
-        user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-          target_username = message.split("@")[-1].strip()
-          if target_username not in ["S_O_L_L_Y"]:
-            await self.teleport_user_next_to(target_username, user)
 
       if message in ["طيرنى","طيرني"]:
         await self.highrise.teleport(f"{user.id}", Position(x=12.5, y=14.25, z=5.5, facing='FrontRight'))
