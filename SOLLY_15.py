@@ -164,7 +164,7 @@ class S_O_L_L_Y(BaseBot):
             await self.teleport_user_next_to(target_username, user)
 
       room_users = (await self.highrise.get_room_users()).content
-      if user in [target_user for target_user, _ in room_users] and user.username not in ["SOLLY_15"]:
+      if user in [target_user for target_user, _ in room_users] and user.username not in ["SOLLY_15","SOLLY_DJ","SOLLY_PAG"]:
           try:
               await self.highrise.react(reaction, user.id)
           except Exception as e:

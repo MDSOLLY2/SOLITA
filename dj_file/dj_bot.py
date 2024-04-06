@@ -57,7 +57,7 @@ class S_O_L_L_Y(BaseBot):
       
     async def on_reaction(self, user: User, reaction: Reaction, receiver: User) -> None:
         room_users = (await self.highrise.get_room_users()).content
-        if user in [target_user for target_user, _ in room_users]:
+        if user in [target_user for target_user, _ in room_users] and user.username not in ["SOLLY_DJ"]:
             try:
                 await self.highrise.react(reaction, user.id)
             except highrise.ResponseError as e:
