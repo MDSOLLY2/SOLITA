@@ -52,7 +52,7 @@ class S_O_L_L_Y(BaseBot):
                 await self.highrise.send_emote(random_emote)
                 await asyncio.sleep(10)
             except Exception as e:
-              print(f"oh no an error occurred: {e}"")
+              print(f"oh no an error occurred: {e}")
       
       
     async def on_reaction(self, user: User, reaction: Reaction, receiver: User) -> None:
