@@ -61,7 +61,7 @@ def is_user_in_specified_area(bot_instance, pos):
     return False
 
 def get_position_coordinates(bot_instance, pos):
-    if pos is not None:
+    if pos is not None and not AnchorPosition:
         if hasattr(pos, 'x'):
             x = pos.x
         elif hasattr(pos, 'position') and hasattr(pos.position, 'x'):
