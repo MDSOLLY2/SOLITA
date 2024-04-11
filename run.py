@@ -66,25 +66,15 @@ class RunBot():
   bot_file_9 = "SOLLY_MAZE"
   bot_class_9 = "S_O_L_L_Y"
 
-  room_id_10 = "65f82e18e3a877ee999ad831"
-  bot_token_10 = "a01b247e3b361d82dca5f25eacebf7f7e877b6bd0496b3b07b2fc0a830d8ed6f"
-  bot_file_10 = "SOLLY_MURDER"
+  room_id_10 = "65da4ad0b493c80d123a5a49"
+  bot_token_10 = "b5a7c1716ee3679e3d4bac2f5494cdeb0ac42fad5ddc6b83db914658c1f3c3d3"
+  bot_file_10 = "SOLLY_PAG"
   bot_class_10 = "S_O_L_L_Y"
 
   room_id_11 = "65da4ad0b493c80d123a5a49"
-  bot_token_11 = "b5a7c1716ee3679e3d4bac2f5494cdeb0ac42fad5ddc6b83db914658c1f3c3d3"
-  bot_file_11 = "SOLLY_PAG"
+  bot_token_11 = "e6c200d977d2c0d6acf349db72c443eefa369b23e4d9c5c1390c2ba23ae3f581"
+  bot_file_11 = "dj_file.dj_bot"
   bot_class_11 = "S_O_L_L_Y"
-
-  room_id_12 = "64f4300f997a6c7df1974127"
-  bot_token_12 = "09b5c08f4571c0194ab303c3548c1d06e4dcd012c84266c4792206ad894b8792"
-  bot_file_12 = "SOLLY_PARTY"
-  bot_class_12 = "S_O_L_L_Y"
-
-  room_id_13 = "65da4ad0b493c80d123a5a49"
-  bot_token_13 = "e6c200d977d2c0d6acf349db72c443eefa369b23e4d9c5c1390c2ba23ae3f581"
-  bot_file_13 = "dj_file.dj_bot"
-  bot_class_13 = "S_O_L_L_Y"
 
 
   def __init__(self) -> None:
@@ -121,13 +111,7 @@ class RunBot():
             self.room_id_10, self.bot_token_10),
       BotDefinition(
           getattr(import_module(self.bot_file_11), self.bot_class_11)(),
-          self.room_id_11, self.bot_token_11),
-      BotDefinition(
-          getattr(import_module(self.bot_file_12), self.bot_class_12)(),
-          self.room_id_12, self.bot_token_12),
-      BotDefinition(
-          getattr(import_module(self.bot_file_13), self.bot_class_13)(),
-          self.room_id_13, self.bot_token_13)
+          self.room_id_11, self.bot_token_11)
     ]  # More BotDefinition classes can be added to the definitions list
 
   def run_loop(self) -> None:
