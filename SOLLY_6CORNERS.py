@@ -38,13 +38,8 @@ import asyncio
 import random
 
 class S_O_L_L_Y(BaseBot):
-    greetings = [ "Welcome My Friend",
-                 "Wlc Love",
-                 "Enjoy",
-                 "My Twinz",
-                 "Pro player is here",
-                 "Big Boss",
-                 "ly",
+    greetings = [ "منور الروم يا صديقي",
+                  "نورت الروم يا حبيبي",
 
 
         # ... (ترحيبات أخرى هنا)
@@ -327,7 +322,7 @@ class S_O_L_L_Y(BaseBot):
          if target_username not in ["S_O_L_L_Y"]:
             await self.teleport_user_next_to(target_username, user)
 
-      if message in ["خرجني","door","Door","gG","gg","Gg","GG","Out","out"]:
+      if message in ["خرجني","door","Door","gG","gg","Gg","GG","Out","out","اوت"]:
         try:
             await self.highrise.teleport(f"{user.id}", Position(x=8.5, y=7.25, z=1.5, facing='FrontRight'))
         except:
@@ -1224,73 +1219,6 @@ class S_O_L_L_Y(BaseBot):
       else:
           pass
 
-      #لو عايز توزع جولد عشوائي
-      if message == ("tip 3 1g") and user.username in ["S_O_L_L_Y"]:
-        roomUsers = (await self.highrise.get_room_users()).content
-      #shuffle the list to ensure randomnesss
-        random.shuffle(roomUsers)
-      #select the first three users
-        selected_users = roomUsers[:3]
-        for roomUser, _ in selected_users:
-           await self.highrise.tip_user(roomUser.id, "gold_bar_1")
-           await self.highrise.chat(f"S_O_L_L_Y tipped {roomUser.username} 1 Gold! 💰")
-
-      if message == ("tip 1 1g") and user.username in ["S_O_L_L_Y"]:
-        roomUsers = (await self.highrise.get_room_users()).content
-      #shuffle the list to ensure randomnesss
-        random.shuffle(roomUsers)
-      #select the first three users
-        selected_users = roomUsers[:1]
-        for roomUser, _ in selected_users:
-           await self.highrise.tip_user(roomUser.id, "gold_bar_1")
-           await self.highrise.chat(f"S_O_L_L_Y tipped {roomUser.username} 1 Gold! 💰")
-
-      if message == ("tip 2 1g") and user.username in ["S_O_L_L_Y"]:
-        roomUsers = (await self.highrise.get_room_users()).content
-      #shuffle the list to ensure randomnesss
-        random.shuffle(roomUsers)
-      #select the first three users
-        selected_users = roomUsers[:2]
-        for roomUser, _ in selected_users:
-           await self.highrise.tip_user(roomUser.id, "gold_bar_1")
-           await self.highrise.chat(f"S_O_L_L_Y tipped {roomUser.username} 1 Gold! 💰")
-
-      if message == ("tip 1 5g") and user.username in ["S_O_L_L_Y"]:
-        roomUsers = (await self.highrise.get_room_users()).content
-      #shuffle the list to ensure randomnesss
-        random.shuffle(roomUsers)
-      #select the first three users
-        selected_users = roomUsers[:1]
-        for roomUser, _ in selected_users:
-           await self.highrise.tip_user(roomUser.id, "gold_bar_5")
-           await self.highrise.chat(f"S_O_L_L_Y tipped {roomUser.username} 5 Gold! 💰")
-
-
-      if message.startswith("!tip "):
-        try:
-            tip_amount = int(message.split(" ")[1])
-        except IndexError:
-            await self.highrise.send_whisper(user.id, "Spesify a tip amount.")
-            return
-        except ValueError:
-            await self.highrise.send_whisper(user.id, "Invalid amount.")
-            return
-        if user.username in ["S_O_L_L_Y"]:
-            response = await self.highrise.get_room_users()
-            num_users = len(response.content)
-            total_gold = tip_amount * num_users
-
-            bot_wallet = await self.highrise.get_wallet()
-            bot_amount = bot_wallet.content[0].amount
-
-            if bot_amount >= total_gold:
-                for content in response.content:
-                    user_id = content[0].id
-                    await self.highrise.tip_user(user_id, f"gold_bar_{tip_amount}")
-            else:
-                await self.highrise.send_whisper(user.id, "Not enough funds")
-
-
       #لو عايز يتبع حد
       if message.lower().startswith(('Follow @','follow @','!Follow @','!follow @')):
         if user.username in ["S_O_L_L_Y"]:
@@ -1306,145 +1234,3 @@ class S_O_L_L_Y(BaseBot):
       elif message.lower() == "stop" and user.username in ["S_O_L_L_Y"]:
           self.following_username = None
           await self.highrise.chat("okay ❤")
-
-
-      #لو عايز تطرد حد
-      if message.startswith(('Kick','kick','!Kick','!kick')):
-        user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-            pass
-        else:
-            await self.highrise.chat("You do not have permission to use this command.")
-            return
-        #separete message into parts
-        parts = message.split()
-        #check if message is valid "kick @username"
-        if len(parts) != 2:
-            await self.highrise.chat("Invalid kick command format.")
-            return
-        #checks if there's a @ in the message
-        if "@" not in parts[1]:
-            username = parts[1]
-        else:
-            username = parts[1][1:]
-        #check if user is in room
-        room_users = (await self.highrise.get_room_users()).content
-        for room_user, pos in room_users:
-            if room_user.username.lower() == username.lower():
-                user_id = room_user.id
-                break
-        if "user_id" not in locals():
-            await self.highrise.chat("User not found, please specify a valid user and coordinate")
-            return
-        #kick user
-        try:
-            await self.highrise.moderate_room(user_id, "kick")
-        except Exception as e:
-            await self.highrise.chat(f"{e}")
-            return
-        #send message to chat
-        await self.highrise.chat(f"{username} has been kicked from the room.")
-
-
-      #لو عايز تبند حد
-      if message.startswith(('Ban','ban','!Ban','!ban')):
-        user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-              parts = message.split()
-              if len(parts) != 3:
-                  await self.highrise.chat("Invalid Ban command format.")
-                  return
-
-              if "@" not in parts[1]:
-                  username = parts[1]
-              else:
-                  username = parts[1][1:]
-
-              user = await self.webapi.get_users(username = username, limit=1)
-              if user:
-                  user_id = user.users[0].user_id
-              else:
-                  await self.highrise.chat("User not found, please specify a valid user")
-                  return
-
-              action_length = parts[2]
-              if action_length not in ["300","900","3600"]:
-                  await self.highrise.chat("Please input a valid duration.")
-                  return
-
-              try:
-                  await self.highrise.moderate_room(user_id, "ban", action_length)
-              except Exception as e:
-                  await self.highrise.chat(str(e))
-                  return
-
-              await self.highrise.chat(f"{username} has been banned from the room.")
-
-
-      #لو عايز تشيل بان عن حد
-      if message.startswith(('Unban','unban','!Unban','!unban')):
-        user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-            parts = message.split()
-            if len(parts) != 2:
-                await self.highrise.chat("Invalid Unban command format.")
-                return
-
-            if "@" not in parts[1]:
-                username = parts[1]
-            else:
-                username = parts[1][1:]
-
-            user = await self.webapi.get_users(username = username, limit=1)
-            if user:
-                user_id = user.users[0].user_id
-            else:
-                await self.highrise.chat("User not found, please specify a valid user")
-                return
-
-            try:
-                await self.highrise.moderate_room(user_id, "unban")
-            except Exception as e:
-                await self.highrise.chat(str(e))
-                return
-
-            await self.highrise.chat(f"{username} has been unbanned from the room.")
-
-
-      #لو عايز تعمل ميوت لحد
-      if message.startswith(('Mute','mute','!Mute','!mute')):
-        user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-              parts = message.split()
-              if len(parts) != 3:
-                  await self.highrise.chat("Invalid Mute command format.")
-                  return
-
-              if "@" not in parts[1]:
-                  username = parts[1]
-              else:
-                  username = parts[1][1:]
-
-              room_users = (await self.highrise.get_room_users()).content
-              user_id = None
-              for room_user, pos in room_users:
-                  if room_user.username.lower() == username.lower():
-                      user_id = room_user.id
-                      break
-
-              if user_id is None:
-                  await self.highrise.chat("User not found, please specify a valid user.")
-                  return
-
-              action_length = parts[2]
-              if action_length not in ["300", "900", "3600"]:
-                  await self.highrise.chat("Please input a valid duration.")
-                  return
-
-              try:
-                  await self.highrise.moderate_room(user_id, "mute", action_length)
-              except Exception as e:
-                  await self.highrise.chat(str(e))
-                  return
-
-              await self.highrise.chat(f"{username} has been muted for {action_length} from the room.")

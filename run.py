@@ -76,6 +76,11 @@ class RunBot():
   bot_file_11 = "dj_file.dj_bot"
   bot_class_11 = "S_O_L_L_Y"
 
+  room_id_12 = "64f31ba1e50a4b812315b976"
+  bot_token_12 = "bcac41e76b388cb3b1c1b88a48a73cd709309c4a6be7b4557bb7956eda9b8ca4"
+  bot_file_12 = "SOLLY_SQUIDGAME"
+  bot_class_12 = "S_O_L_L_Y"
+
 
   def __init__(self) -> None:
     self.definitions = [
@@ -111,7 +116,10 @@ class RunBot():
             self.room_id_10, self.bot_token_10),
       BotDefinition(
           getattr(import_module(self.bot_file_11), self.bot_class_11)(),
-          self.room_id_11, self.bot_token_11)
+          self.room_id_11, self.bot_token_11),
+      BotDefinition(
+          getattr(import_module(self.bot_file_12), self.bot_class_12)(),
+          self.room_id_12, self.bot_token_12)
     ]  # More BotDefinition classes can be added to the definitions list
 
   def run_loop(self) -> None:
