@@ -64,7 +64,7 @@ class S_O_L_L_Y(BaseBot):
     async def on_start(self, session_metadata: SessionMetadata) -> None:
       print("SOLLY_SQUIDGAME")
       self.highrise.tg.create_task(self.highrise.teleport(
-          session_metadata.user_id, Position(x=17.5, y=0.0, z=27.5, facing='FrontRight')))
+          session_metadata.user_id, Position(x=17.5, y=0.0, z=27.5, facing='FrontLeft')))
 
 
     async def follow_user(self, target_username: str):
@@ -106,7 +106,7 @@ class S_O_L_L_Y(BaseBot):
 
     async def on_user_join(self, user: User, position: Position) -> None:
     #يحيك
-      await self.highrise.chat(f"{user.username} 💖")
+      await self.highrise.chat(f"{user.username}    {user.username}")
       await self.highrise.react("heart", user.id)
 
       # تشغيل رقصة للبوت عند دخول المستخدم
@@ -290,7 +290,7 @@ class S_O_L_L_Y(BaseBot):
           await self.highrise.send_whisper(user.id,f"There are {len(room_users)} users in the room")
 
       if message.startswith("back") and user.username in ["S_O_L_L_Y"]:
-        await self.highrise.walk_to(Position(x=17.5, y=0.0, z=27.5, facing='FrontRight'))
+        await self.highrise.walk_to(Position(x=17.5, y=0.0, z=27.5, facing='FrontLeft'))
 
       if message in ["Host","host","!Host","!host","هوست"]:
         user_privileges = await self.highrise.get_room_privilege(user.id)
@@ -879,7 +879,7 @@ class S_O_L_L_Y(BaseBot):
             'in': Position(x=9.5, y=0.0, z=27.0, facing='BackLeft'),
             'door': Position(x=17.5, y=14.75, z=12.0, facing='FrontLeft'),
             'vip': Position(x=8.5, y=3.75, z=4.5, facing='FrontRight'),
-            'start' : Position(x=9.5, y=0.25, z=6.5, facing='FrontRight'),
+            'start' : Position(x=17.5, y=0.0, z=27.5, facing='FrontLeft'),
           }
           dest = destinations.get(position_name.lower())
           if dest is None:
