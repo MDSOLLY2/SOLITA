@@ -420,17 +420,6 @@ class S_O_L_L_Y(BaseBot):
             await self.highrise.send_emote(emote_id, user.id)
         except Exception as e:
             print(f"Error: {e}")
-      #لو عايز الروم كلها ترقص رقصه عشوائيه
-      if message.startswith(("Dance all","dance all","!Dance all","!dance all","رقصنا","All 0","all 0","0 All","0 all")):
-          emote_id = random.choice(self.dances)
-          roomUsers = (await self.highrise.get_room_users()).content
-          for roomUser, _ in roomUsers:
-            await self.highrise.send_emote(emote_id, roomUser.id)
-      #لو عايز الروم كلها ترقص نفس رقصتك
-      if message.startswith(("Fly all","fly all","All fly","all fly","طيرنا","All 1","all 1","1 All","1 all")):
-          roomUsers = (await self.highrise.get_room_users()).content
-          for roomUser, _ in roomUsers:
-            await self.highrise.send_emote("emote-float", roomUser.id)
       #لو عايز انت بس ترقص
       if message in ["Fly","fly","!Fly","!fly","Float","float","!Float","!float","طيرني","طيرنى","1"]:
         try:
@@ -438,10 +427,6 @@ class S_O_L_L_Y(BaseBot):
         except Exception as e:
               print(f"Error: {e}")
       #باقي الرقصات
-      if message.startswith(("Sleigh all","sleigh all","All sleigh","all sleigh","مشيني","All 2","all 2","2 All","2 all")):
-          roomUsers = (await self.highrise.get_room_users()).content
-          for roomUser, _ in roomUsers:
-              await self.highrise.send_emote("emote-sleigh", roomUser.id)
 
       if message in ["Sleigh","sleigh","!Sleigh","!sleigh","مشيني","2"]:
           try:
@@ -449,10 +434,6 @@ class S_O_L_L_Y(BaseBot):
           except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Fashionista all","fashionista all","All fashionista","all fashionista","مز","All 3","all 3","3 All","3 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-fashionista", roomUser.id)
 
       if message in ["Fashionista","fashionista","!Fashionista","!fashionista","مز","3"]:
             try:
@@ -460,21 +441,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("P8 all","p8 all","All p8","all p8","بطل","All 4","all 4","4 All","4 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-pose8", roomUser.id)
-
       if message in ["Pose 8","pose 8","!Pose 8","!pose 8","P8","p8","بطل","4"]:
             try:
                 await self.highrise.send_emote('emote-pose8', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Icecreamdance all","icecreamdance all","All icecreamdance","all icecreamdance","ايس كريم","All 5","all 5","5 All","5 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-icecream", roomUser.id)
 
       if message in ["Icecreamdance","icecreamdance","!Icecreamdance","!icecreamdance","ايس كريم","5"]:
             try:
@@ -482,21 +453,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Macarena all","macarena all","All macarena","all macarena","مكرونا","All 6","all 6","6 All","6 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-macarena", roomUser.id)
-
       if message in ["Macarena","macarena","!Macarena","!macarena","مكرونا","6"]:
             try:
                 await self.highrise.send_emote('dance-macarena', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("P7 all","p7 all","All p7","all p7","جامد","All 7","all 7","7 All","7 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-pose7", roomUser.id)
 
       if message in ["Pose 7","pose 7","!Pose 7","!pose 7","P7","p7","جامد","7"]:
             try:
@@ -504,21 +465,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("T10 all","t10 all","All t10","all t10","شخلعني","All 8","all 8","8 All","8 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-tiktok10", roomUser.id)
-
       if message in ["Tiktokdance 10","tiktokdance 10","!Tiktokdance 10","!tiktokdance 10","T10","t10","شخلعني","8"]:
             try:
                 await self.highrise.send_emote('dance-tiktok10', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Superpose all","superpose all","All superpose","all superpose","وحش","All 9","all 9","9 All","9 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-superpose", roomUser.id)
 
       if message in ["Superpose","superpose","!Superpose","!superpose","وحش","9"]:
             try:
@@ -526,32 +477,17 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Weirddance all","weirddance all","All weirddance","all weirddance","مسطول","All 10","all 10","10 All","10 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-weird", roomUser.id)
-
       if message in ["Weirddance","weirddance","!Weirddance","!weirddance","مسطول","10"]:
             try:
                 await self.highrise.send_emote('dance-weird', user.id)
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("T9 all","t9 all","All t9","all t9","سقف","All 11","all 11","11 All","11 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-tiktok9", roomUser.id)
-
       if message in ["Tiktokdance 9","tiktokdance 9","!Tiktokdance 9","!tiktokdance 9","T9","t9","سقف","11"]:
             try:
                 await self.highrise.send_emote('dance-tiktok9', user.id)
             except Exception as e:
-                print(f"Error: {e}") 
-
-      if message.startswith(("Cute all","cute all","All cute","all cute","كيوت","All 12","all 12","12 All","12 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-cute", roomUser.id)
+                print(f"Error: {e}")
 
       if message in ["Cute","cute","!Cute","!cute","كيوت","12"]:
             try:
@@ -559,21 +495,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Wave all","wave all","All wave","all wave","فوق","All 13","all 13","13 All","13 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-wave", roomUser.id)
-
       if message in ["Wave","wave","!Wave","!wave","فوق","3"]:
             try:
                 await self.highrise.send_emote('emote-wave', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Kiss all","kiss all","All kiss","all kiss","مواه","All 14","all 14","14 All","14 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-kiss", roomUser.id)
 
       if message in ["Kiss","kiss","!Kiss","!kiss","مواه","14"]:
             try:
@@ -581,21 +507,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}") 
 
-      if message.startswith(("Laugh all","laugh all","All laugh","all laugh","ضحك","All 15","all 15","15 All","15 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-laughing", roomUser.id)
-
       if message in ["Laugh","laugh","!Laugh","!laugh","ضحك","15"]:
             try:
                 await self.highrise.send_emote('emote-laughing', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Sweating all","sweating all","All sweating","all sweating","اوف","All 16","all 16","16 All","16 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-hot", roomUser.id)
 
       if message in ["Sweating","sweating","!Sweating","!sweating","اوف","16"]:
             try:
@@ -603,32 +519,17 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Cutey all","cutey all","All cutey","all cutey","قلبي","All 17","all 17","17 All","17 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-cutey", roomUser.id)
-
       if message in ["Cutey","cutey","!Cutey","!cutey","قلبي","17"]:
             try:
                 await self.highrise.send_emote('emote-cutey', user.id)
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("P5 all","p5 all","All p5","all p5","فخم","All 18","all 18","18 All","18 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-pose5", roomUser.id)
-
       if message in ["Pose 5","pose 5","!Pose 5","!pose 5","P5","p5","فخم","18"]:
             try:
                 await self.highrise.send_emote('emote-pose5', user.id)
             except Exception as e:
-                print(f"Error: {e}")
-
-      if message.startswith(("Teleporting all","teleporting all","All teleporting","all teleporting","اخفيني","All 19","all 19","19 All","19 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-teleporting", roomUser.id)
+                print(f"Error: {e}") 
 
       if message in ["Teleporting","teleporting","!Teleporting","!teleporting","اخفيني","19"]:
             try:
@@ -636,21 +537,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Letsgoshopping all","letsgoshopping all","All letsgoshopping","all letsgoshopping","بشتري","All 20","all 20","20 All","20 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-shoppingcart", roomUser.id)
-
       if message in ["Letsgoshopping","letsgoshopping","!Letsgoshopping","!letsgoshopping","بشتري","20"]:
             try:
                 await self.highrise.send_emote('dance-shoppingcart', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Greedy all","greedy all","All greedy","all greedy","حرامي","All 21","all 21","21 All","21 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-greedy", roomUser.id)
 
       if message in ["Greedy","greedy","!Greedy","!greedy","حرامي","21"]:
             try:
@@ -658,21 +549,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("P3 all","p3 all","All p3","all p3","اخشع","All 22","all 22","22 All","22 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-pose3", roomUser.id)
-
       if message in ["Pose 3","pose 3","!Pose 3","!pose 3","P3","p3","اخشع","22"]:
             try:
                 await self.highrise.send_emote('emote-pose3', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("P1 all","p1 all","All p1","all p1","وجاهه","All 23","all 23","23 All","23 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-pose1", roomUser.id)
 
       if message in ["Pose 1","pose 1","!Pose 1","!pose 1","P1","p1","وجاهه","23"]:
             try:
@@ -680,21 +561,13 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Punkguitar all","punkguitar all","All punkguitar","all punkguitar","طرب","All 24","all 24","24 All","24 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-punkguitar", roomUser.id)
-
       if message in ["Punkguitar","punkguitar","!Punkguitar","!punkguitar","طرب","24"]:
             try:
                 await self.highrise.send_emote('emote-punkguitar', user.id)
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Singing all","singing all","All singing","all singing","هز","All 25","all 25","25 All","25 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("idle_singing", roomUser.id)
+      
 
       if message in ["Singing","singing","!Singing","!singing","هز","25"]:
             try:
@@ -702,21 +575,13 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Casualdance all","casualdance all","All casualdance","all casualdance","عقباوي","All 26","all 26","26 All","26 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("idle-dance-casual", roomUser.id)
-
       if message in ["Casualdance","casualdance","!Casualdance","!casualdance","عقباوي","26"]:
             try:
                 await self.highrise.send_emote('idle-dance-casual', user.id)
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Confusion all","confusion all","All confusion","all confusion","بتقول ايه","All 27","all 27","27 All","27 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-confused", roomUser.id)
+      
 
       if message in ["Confusion","confusion","!Confusion","!confusion","بتقول ايه","27"]:
             try:
@@ -724,10 +589,6 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Raisetheroof all","raisetheroof all","All raisetheroof","all raisetheroof","هييه","All 28","all 28","28 All","28 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emoji-celebrate", roomUser.id)
 
       if message in ["Raisetheroof","raisetheroof","!Raisetheroof","!raisetheroof","هييه","28"]:
             try:
@@ -735,21 +596,12 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Animedance all","animedance all","All animedance","all animedance","نططني","All 29","all 29","29 All","29 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-anime", roomUser.id)
-
       if message in ["Animedance","animedance","!Animedance","!animedance","نططني","29"]:
             try:
                 await self.highrise.send_emote('dance-anime', user.id)
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Swordfight all","swordfight all","All swordfight","all swordfight","خود","All 30","all 30","30 All","30 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-swordfight", roomUser.id)
 
       if message in ["Swordfight","swordfight","!Swordfight","!swordfight","خود","30"]:
             try:
@@ -757,10 +609,7 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Advancedshy all","advancedshy all","All advancedshy","all advancedshy","مكسوف","All 31","all 31","31 All","31 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-shy2", roomUser.id)
+      
 
       if message in ["Advancedshy","advancedshy","!Advancedshy","!advancedshy","مكسوف","31"]:
             try:
@@ -768,21 +617,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("T4 all","t4 all","All t4","all t4","هز يبط","All 32","all 32","32 All","32 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("idle-dance-tiktok4", roomUser.id)
-
       if message in ["Tiktokdance 4","tiktokdance 4","!Tiktokdance 4","!tiktokdance 4","T4","t4","هز يبط","32"]:
             try:
                 await self.highrise.send_emote('idle-dance-tiktok4', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Dontstartnow all","dontstartnow all","All dontstartnow","all dontstartnow","هز يوز","All 33","all 33","33 All","33 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-tiktok2", roomUser.id)
 
       if message in ["Dontstartnow","dontstartnow","!Dontstartnow","!dontstartnow","هز يوز","33"]:
             try:
@@ -790,10 +629,6 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Model all","model all","All model","all model","مودل","All 34","all 34","34 All","34 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-model", roomUser.id)
 
       if message in ["Model","model","!Model","!model","مودل","34"]:
             try:
@@ -801,21 +636,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Charging all","charging all","All charging","all charging","عا","All 35","all 35","35 All","35 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-charging", roomUser.id)
-
       if message in ["Charging","charging","!Charging","!charging","عا","35"]:
             try:
                 await self.highrise.send_emote('emote-charging', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Snake all","snake all","All snake","all snake","مساج","All 36","all 36","36 All","36 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-snake", roomUser.id)
 
       if message in ["Snake","snake","!Snake","!snake","مساج","36"]:
             try:
@@ -823,10 +648,6 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Russiandance all","russiandance all","All russiandance","all russiandance","دلعني","All 37","all 37","37 All","37 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-russian", roomUser.id)
 
       if message in ["Russiandance","russiandance","!Russiandance","!russiandance","دلعني","37"]:
             try:
@@ -834,10 +655,6 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Uwu all","uwu all","All uwu","all uwu","بتكسف","All 38","all 38","38 All","38 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("idle-uwu", roomUser.id)
 
       if message in ["Uwu","uwu","!Uwu","!uwu","بتكسف","38"]:
             try:
@@ -845,10 +662,6 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Flirtywave all","flirtywave all","All flirtywave","all flirtywave","ماشي","All 39","all 39","39 All","39 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-lust", roomUser.id)
 
       if message in ["Flirtywave","flirtywave","!Flirtywave","!flirtywave","ماشي","39"]:
             try:
@@ -856,21 +669,12 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Cursing all","cursing all","All cursing","all cursing","عصبني","All 40","all 40","40 All","40 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emoji-cursing", roomUser.id)
-
       if message in ["Cursing","cursing","!Cursing","!cursing","عصبني","40"]:
             try:
                 await self.highrise.send_emote('emoji-cursing', user.id)
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Wrong all","wrong all","All wrong","all wrong","شوف دي","All 41","all 41","41 All","41 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-wrong", roomUser.id)
 
       if message in ["Wrong","wrong","!Wrong","!wrong","شوف دي","41"]:
             try:
@@ -878,21 +682,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Tummyache all","tummyache all","All tummyache","all tummyache","بطني","All 42","all 42","42 All","42 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emoji-gagging", roomUser.id)
-
       if message in ["Tummyache","tummyache","!Tummyache","!tummyache","بطني","42"]:
             try:
                 await self.highrise.send_emote('emoji-gagging', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Savagedance all","savagedance all","All savagedance","all savagedance","عبيط","All 43","all 43","43 All","43 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-tiktok8", roomUser.id)
 
       if message in ["Savagedance","savagedance","!Savagedance","!savagedance","عبيط","43"]:
             try:
@@ -900,21 +694,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Kpopdance all","kpopdance all","All kpopdance","all kpopdance","وسع","All 44","all 44","44 All","44 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-blackpink", roomUser.id)
-
       if message in ["Kpopdance","kpopdance","!Kpopdance","!kpopdance","وسع","44"]:
             try:
                 await self.highrise.send_emote('dance-blackpink', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Pennysdance all","pennysdance all","All pennysdance","all pennysdance","اجري","All 45","all 45","45 All","45 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-pennywise", roomUser.id)
 
       if message in ["Pennysdance","pennysdance","!Pennysdance","!pennysdance","اجري","45"]:
             try:
@@ -922,21 +706,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Bow all","bow all","All bow","all bow","اتفضل","All 46","all 46","46 All","46 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-bow", roomUser.id)
-
       if message in ["Bow","bow","!Bow","!bow","اتفضل","46"]:
             try:
                 await self.highrise.send_emote('emote-bow', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Curtsy all","curtsy all","All curtsy","all curtsy","شكرا","All 47","all 47","47 All","47 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-curtsy", roomUser.id)
 
       if message in ["Curtsy","curtsy","!Curtsy","!curtsy","شكرا","47"]:
             try:
@@ -944,21 +718,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Snowballfight all","snowballfight all","All snowballfight","all snowballfight","اتفو","All 48","all 48","48 All","48 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-snowball", roomUser.id)
-
       if message in ["Snowballfight","snowballfight","!Snowballfight","!snowballfight","اتفو","48"]:
             try:
                 await self.highrise.send_emote('emote-snowball', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Snowangel all","snowangel all","All snowangel","all snowangel","بموت","All 49","all 49","49 All","49 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-snowangel", roomUser.id)
 
       if message in ["Snowangel","snowangel","!Snowangel","!snowangel","بموت","49"]:
             try:
@@ -966,21 +730,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Telekinesis all","telekinesis all","All telekinesis","all telekinesis","سحر","All 50","all 50","50 All","50 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-telekinesis", roomUser.id)
-
       if message in ["Telekinesis","telekinesis","!Telekinesis","!telekinesis","سحر","50"]:
             try:
                 await self.highrise.send_emote('emote-telekinesis', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Maniac all","maniac all","All maniac","all maniac","جنني","All 51","all 51","51 All","51 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-maniac", roomUser.id)
 
       if message in ["Maniac","maniac","!Maniac","!maniac","جنني","51"]:
             try:
@@ -988,21 +742,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Energyball all","energyball all","All energyball","all energyball","تمام","All 52","all 52","52 All","52 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-energyball", roomUser.id)
-
       if message in ["Energyball","energyball","!Energyball","!energyball","تمام","52"]:
             try:
                 await self.highrise.send_emote('emote-energyball', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Frog all","frog all","All frog","all frog","بخ","All 53","all 53","53 All","53 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-frog", roomUser.id)
 
       if message in ["Frog","frog","!Frog","!frog","53","بخ"]:
             try:
@@ -1010,21 +754,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Sit all","sit all","All sit","all sit","قعدني","All 54","all 54","54 All","54 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("idle-loop-sitfloor", roomUser.id)
-
       if message in ["Sit","sit","!Sit","!sit","قعدني","54"]:
             try:
                 await self.highrise.send_emote('idle-loop-sitfloor', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Hyped all","hyped all","All hyped","all hyped","مش شايف","All 55","all 55","55 All","55 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-hyped", roomUser.id)
 
       if message in ["Hyped","hyped","!Hyped","!hyped","مش شايف","55"]:
             try:
@@ -1032,21 +766,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Jinglebell all","jinglebell all","All jinglebell","all jinglebell","عالم","All 56","all 56","56 All","56 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-jinglebell", roomUser.id)
-
       if message in ["Jinglebell","jinglebell","!Jinglebell","!jinglebell","عالم","56"]:
             try:
                 await self.highrise.send_emote('dance-jinglebell', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Nervous all","nervous all","All nervous","all nervous","يفضحتي","All 57","all 57","57 All","57 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("idle-nervous", roomUser.id)
 
       if message in ["Nervous","nervous","!Nervous","!nervous","يفضحتي","57"]:
             try:
@@ -1054,21 +778,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Toilet all","toilet all","All toilet","all toilet","مزنوق","All 58","all 58","58 All","58 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("idle-toilet", roomUser.id)
-
       if message in ["Toilet","toilet","!Toilet","!toilet","مزنوق","58"]:
             try:
                 await self.highrise.send_emote('idle-toilet', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Astronaut all","astronaut all","All astronaut","all astronaut","اشطا","All 59","all 59","59 All","59 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-astronaut", roomUser.id)
 
       if message in ["Astronaut","astronaut","!Astronaut","!astronaut","اشطا","59"]:
             try:
@@ -1076,21 +790,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Timejump all","timejump all","All timejump","all timejump","باي","All 60","all 60","60 All","60 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-timejump", roomUser.id)
-
       if message in ["Timejump","timejump","!Timejump","!timejump","باي","60"]:
             try:
                 await self.highrise.send_emote('emote-timejump', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Penguindance all","penguindance all","All penguindance","all penguindance","سيو","All 61","all 61","61 All","61 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-pinguin", roomUser.id)
 
       if message in ["Penguindance","penguindance","!Penguindance","!penguindance","سيو","61"]:
             try:
@@ -1098,21 +802,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Creepypuppet all","creepypuppet all","All creepypuppet","all creepypuppet","عفريت","All 62","all 62","62 All","62 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("dance-creepypuppet", roomUser.id)
-
       if message in ["Creepypuppet","creepypuppet","!Creepypuppet","!creepypuppet","عفريت","62"]:
             try:
                 await self.highrise.send_emote('dance-creepypuppet', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-      if message.startswith(("Gravity all","gravity all","All gravity","all gravity","مرجحني","All 63","all 63","63 All","63 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-gravity", roomUser.id)
 
       if message in ["Gravity","gravity","!Gravity","!gravity","63","مرجحني"]:
             try:
@@ -1120,22 +814,11 @@ class S_O_L_L_Y(BaseBot):
             except Exception as e:
                 print(f"Error: {e}")
 
-      if message.startswith(("Zombierun all","zombierun all","All zombierun","all zombierun","زومبي","All 64","all 64","64 All","64 all")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("emote-zombierun", roomUser.id)
-
       if message in ["Zombierun","zombierun","!Zombierun","!zombierun","زومبي","64"]:
             try:
                 await self.highrise.send_emote('emote-zombierun', user.id)
             except Exception as e:
                 print(f"Error: {e}")
-
-
-      if message.startswith(("Enthused all","enthused all","All enthused","all enthused","في ايه","All 65","all 65","65 All","65 all","سولي","مستفز")):
-            roomUsers = (await self.highrise.get_room_users()).content
-            for roomUser, _ in roomUsers:
-                await self.highrise.send_emote("idle-enthusiastic", roomUser.id)
 
       if message in ["Enthused","enthused","!Enthused","!enthused","في ايه","65","سولي","مستفز"]:
           try:
@@ -1143,32 +826,17 @@ class S_O_L_L_Y(BaseBot):
           except Exception as e:
               print(f"Error: {e}")
 
-      if message.startswith(("Kawaii all","kawaii all","All kawaii","all kawaii","هاي","All 66","all 66","66 All","66 all")):
-          roomUsers = (await self.highrise.get_room_users()).content
-          for roomUser, _ in roomUsers:
-              await self.highrise.send_emote("dance-kawai", roomUser.id)
-
       if message in ["Kawaii","kawaii","!Kawaii","!kawaii","هاي","66"]:
            try:
                await self.highrise.send_emote('dance-kawai', user.id)
            except Exception as e:
                print(f"Error: {e}")
 
-      if message.startswith(("Repose all","repose all","All repose","all repose","نيمني","All 67","all 67","67 All","67 all")):
-          roomUsers = (await self.highrise.get_room_users()).content
-          for roomUser, _ in roomUsers:
-              await self.highrise.send_emote("sit-relaxed", roomUser.id)
-
       if message in ["Repose","repose","!Repose","!repose","نيمني","67"]:
            try:
               await self.highrise.send_emote('sit-relaxed', user.id)
            except Exception as e:
               print(f"Error: {e}")
-
-      if message.startswith(("Flex all","flex all","All flex","all flex","اه","All 68","all 68","68 All","68 all")):
-          roomUsers = (await self.highrise.get_room_users()).content
-          for roomUser, _ in roomUsers:
-              await self.highrise.send_emote("emoji-flex", roomUser.id)
 
       if message in ["Flex","flex","!Flex","!flex","اه","68"]:
            try:
