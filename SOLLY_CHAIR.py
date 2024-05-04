@@ -133,15 +133,17 @@ class S_O_L_L_Y(BaseBot):
     async def on_whisper(self, user: User, message: str) -> None:
 
           #لو عايز تنقل الروم كله
-          if message.startswith("in all") and user.username not in ["SOLLY_CHAIR"]:
+          if message.startswith("in all"):
               roomUsers = (await self.highrise.get_room_users()).content
               for roomUser, _ in roomUsers:
-                await self.highrise.teleport(f"{roomUser.id}", Position(x=14.5, y=0.5, z=0.5, facing="FrontLeft"))
+                  if roomUser.username not in ["SOLLY_CHAIR"]:
+                    await self.highrise.teleport(f"{roomUser.id}", Position(x=14.5, y=0.5, z=0.5, facing="FrontLeft"))
 
-          if message.startswith("out all") and user.username not in ["SOLLY_CHAIR"]:
+          if message.startswith("out all"):
               roomUsers = (await self.highrise.get_room_users()).content
               for roomUser, _ in roomUsers:
-                await self.highrise.teleport(f"{roomUser.id}", Position(x=6.5, y=7.0, z=0.5, facing='FrontRight'))
+                  if roomUser.username not in ["SOLLY_CHAIR"]:
+                    await self.highrise.teleport(f"{roomUser.id}", Position(x=6.5, y=7.0, z=0.5, facing='FrontRight'))
 
 
     #لو عايز الهوست ينقل حد بيراكت
@@ -321,38 +323,6 @@ class S_O_L_L_Y(BaseBot):
          target_username = message.split("@")[-1].strip()
          if target_username not in ["S_O_L_L_Y"]:
             await self.teleport_user_next_to(target_username, user)
-
-      if message.endswith(("👏")):
-          user_privileges = await self.highrise.get_room_privilege(user.id)
-          if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-            try:
-                await self.highrise.teleport(f"{user.id}", Position(x=11.5, y=7.0, z=7.5, facing='FrontLeft'))
-            except:
-                print("error 3")
-
-      if message.endswith(("👍")):
-          user_privileges = await self.highrise.get_room_privilege(user.id)
-          if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-            try:
-                await self.highrise.teleport(f"{user.id}", Position(x=14.5, y=0.5, z=0.5, facing="FrontLeft"))
-            except:
-                print("error 3")
-
-      if message.endswith(("👋")):
-          user_privileges = await self.highrise.get_room_privilege(user.id)
-          if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-            try:
-                await self.highrise.teleport(f"{user.id}", Position(x=6.5, y=7.0, z=0.5, facing='FrontRight'))
-            except:
-                print("error 3")
-
-      if message.endswith(("😉")):
-          user_privileges = await self.highrise.get_room_privilege(user.id)
-          if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
-            try:
-                await self.highrise.teleport(f"{user.id}", Position(x=11.5, y=7.0, z=7.5, facing='FrontLeft'))
-            except:
-                print("error 3")
 
       if message in ["خرجني","door","Door","Out","out","طلعني","طلعنى","اوت"]:
         try:
