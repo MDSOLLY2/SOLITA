@@ -307,7 +307,7 @@ class S_O_L_L_Y(BaseBot):
           except:
             print("error 3")
 
-      if message in ["in","play","In","Play","لعبني"]:
+      if message in ["in","play","In","Play","لعبني","نزلني"]:
         user_privileges = await self.highrise.get_room_privilege(user.id)
         if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
           try:
@@ -322,7 +322,39 @@ class S_O_L_L_Y(BaseBot):
          if target_username not in ["S_O_L_L_Y"]:
             await self.teleport_user_next_to(target_username, user)
 
-      if message in ["خرجني","door","Door","Out","out"]:
+      if message.endswith(("👏")):
+          user_privileges = await self.highrise.get_room_privilege(user.id)
+          if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
+            try:
+                await self.highrise.teleport(f"{user.id}", Position(x=11.5, y=7.0, z=7.5, facing='FrontLeft'))
+            except:
+                print("error 3")
+
+      if message.endswith(("👍")):
+          user_privileges = await self.highrise.get_room_privilege(user.id)
+          if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
+            try:
+                await self.highrise.teleport(f"{user.id}", Position(x=14.5, y=0.5, z=0.5, facing="FrontLeft"))
+            except:
+                print("error 3")
+
+      if message.endswith(("👋")):
+          user_privileges = await self.highrise.get_room_privilege(user.id)
+          if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
+            try:
+                await self.highrise.teleport(f"{user.id}", Position(x=6.5, y=7.0, z=0.5, facing='FrontRight'))
+            except:
+                print("error 3")
+
+      if message.endswith(("😉")):
+          user_privileges = await self.highrise.get_room_privilege(user.id)
+          if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
+            try:
+                await self.highrise.teleport(f"{user.id}", Position(x=11.5, y=7.0, z=7.5, facing='FrontLeft'))
+            except:
+                print("error 3")
+
+      if message in ["خرجني","door","Door","Out","out","طلعني","طلعنى","اوت"]:
         try:
             await self.highrise.teleport(f"{user.id}", Position(x=6.5, y=7.0, z=0.5, facing='FrontRight'))
         except:
