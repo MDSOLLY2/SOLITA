@@ -133,12 +133,12 @@ class S_O_L_L_Y(BaseBot):
     async def on_whisper(self, user: User, message: str) -> None:
 
           #لو عايز تنقل الروم كله
-          if message.startswith("in all"):
+          if message.startswith("in all") and user.username not in ["SOLLY_CHAIR"]:
               roomUsers = (await self.highrise.get_room_users()).content
               for roomUser, _ in roomUsers:
                 await self.highrise.teleport(f"{roomUser.id}", Position(x=14.5, y=0.5, z=0.5, facing="FrontLeft"))
 
-          if message.startswith("out all"):
+          if message.startswith("out all") and user.username not in ["SOLLY_CHAIR"]:
               roomUsers = (await self.highrise.get_room_users()).content
               for roomUser, _ in roomUsers:
                 await self.highrise.teleport(f"{roomUser.id}", Position(x=6.5, y=7.0, z=0.5, facing='FrontRight'))
