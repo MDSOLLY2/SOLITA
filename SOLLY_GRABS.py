@@ -69,6 +69,8 @@ class S_O_L_L_Y(BaseBot):
 
     async def on_start(self, session_metadata: SessionMetadata) -> None:
       print("SOLLY_GRABS")
+      self.highrise.tg.create_task(self.highrise.teleport(
+          session_metadata.user_id, Position(x=9.5, y=100.0, z=0.5, facing='FrontRight')))
 
     async def follow_user(self, target_username: str):
       while self.following_username == target_username:
@@ -159,7 +161,7 @@ class S_O_L_L_Y(BaseBot):
               if reaction == "wave":
                 await self.highrise.teleport(receiver.id, Position(x=19.5, y=0.0, z=12.5, facing='FrontLeft'))
               if reaction == "wink":
-                await self.highrise.teleport(receiver.id, Position(x=7.5, y=0.0, z=17.5, facing='FrontLeft'))
+                await self.highrise.teleport(receiver.id, Position(x=19.5, y=9.0, z=0.5, facing='FrontRight'))
 
       room_users = (await self.highrise.get_room_users()).content
       if user in [target_user for target_user, _ in room_users] and user.username not in ["SOLLY_GRABS"]:
@@ -290,7 +292,7 @@ class S_O_L_L_Y(BaseBot):
           await self.highrise.send_whisper(user.id,f"There are {len(room_users)} users in the room")
 
       if message.startswith("back") and user.username in ["S_O_L_L_Y"]:
-        await self.highrise.walk_to(Position(x=19.5, y=0.0, z=12.5, facing='FrontLeft'))
+        await self.highrise.walk_to(Position(x=9.5, y=100.0, z=0.5, facing='FrontRight'))
 
       if message in ["Host","host","!Host","!host","هوست"]:
         user_privileges = await self.highrise.get_room_privilege(user.id)
