@@ -90,6 +90,46 @@ class RunBot():
   bot_token_14 = "43e4724e791931b2dd281a24c0ad8508d5efd5dc8b9ad5740726ed2f8e286aa1"
   bot_file_14 = "jaksbot"
   bot_class_14 = "S_O_L_L_Y"
+    
+  room_id_15 = "661a23c6249b86137bd771b4"
+  bot_token_15 = "435d9a847bc125ee52a9292cca6a7315565ae34c023f9241b35cfcc395967af6"
+  bot_file_15 = "Bahlol44"
+  bot_class_15 = "S_O_L_L_Y"
+
+  room_id_16 = "661a23c6249b86137bd771b4"
+  bot_token_16 = "d88d02f64640104393bf55be1595941b1c2e8998ff027ca9496a9d161bcf52cc"
+  bot_file_16 = "Bahlol55"
+  bot_class_16 = "S_O_L_L_Y"
+
+  room_id_17 = "661a23c6249b86137bd771b4"
+  bot_token_17 = "4e1830130a5de85ce67d2d64e209e0090756a6ef27f9049cb1d6fd37625d1338"
+  bot_file_17 = "Bahlol00"
+  bot_class_17 = "S_O_L_L_Y"
+
+  room_id_18 = "661a23c6249b86137bd771b4"
+  bot_token_18 = "494f031cabc4a188066bd1151c566a94fb86e4c4097b71a16aec7e0fba9a31a4"
+  bot_file_18 = "Bahlol5"
+  bot_class_18 = "S_O_L_L_Y"
+
+  room_id_19 = "661a23c6249b86137bd771b4"
+  bot_token_19 = "6d283ecd70959b183506b8b35a8e005dd8bf98ca0a399fc90b15c150d629c935"
+  bot_file_19 = "Bahlol23"
+  bot_class_19 = "S_O_L_L_Y"
+
+  room_id_20 = "661a23c6249b86137bd771b4"
+  bot_token_20 = "985df332c1681c3cdeceb81a01a3d3658423caa263780e7fa3bfab6eba61e613"
+  bot_file_20 = "Bahlol4"
+  bot_class_20 = "S_O_L_L_Y"
+
+  room_id_21 = "661a23c6249b86137bd771b4"
+  bot_token_21 = "4667ba7e23dacd673dfd7011315fbcb7898a815c03b010fd67103f27911ce542"
+  bot_file_21 = "Bahlol22"
+  bot_class_21 = "S_O_L_L_Y"
+
+  room_id_22 = "661a23c6249b86137bd771b4"
+  bot_token_22 = "50d67d29f483563b5d32fc9d110bba6d5a5578d5779921788e0a54f68c6d87d9"
+  bot_file_22 = "Bahlol6"
+  bot_class_22 = "S_O_L_L_Y"
 
 
   def __init__(self) -> None:
@@ -135,7 +175,31 @@ class RunBot():
           self.room_id_13, self.bot_token_13),
       BotDefinition(
           getattr(import_module(self.bot_file_14), self.bot_class_14)(),
-          self.room_id_14, self.bot_token_14)
+          self.room_id_14, self.bot_token_14),
+        BotDefinition(
+            getattr(import_module(self.bot_file_15), self.bot_class_15)(),
+            self.room_id_15, self.bot_token_15),
+        BotDefinition(
+            getattr(import_module(self.bot_file_16), self.bot_class_16)(),
+            self.room_id_16, self.bot_token_16),
+        BotDefinition(
+            getattr(import_module(self.bot_file_17), self.bot_class_17)(),
+            self.room_id_17, self.bot_token_17),
+        BotDefinition(
+            getattr(import_module(self.bot_file_18), self.bot_class_18)(),
+            self.room_id_18, self.bot_token_18),
+      BotDefinition(
+          getattr(import_module(self.bot_file_19), self.bot_class_19)(),
+          self.room_id_19, self.bot_token_19),
+      BotDefinition(
+          getattr(import_module(self.bot_file_20), self.bot_class_20)(),
+          self.room_id_20, self.bot_token_20),
+      BotDefinition(
+          getattr(import_module(self.bot_file_21), self.bot_class_21)(),
+          self.room_id_21, self.bot_token_21),
+      BotDefinition(
+          getattr(import_module(self.bot_file_22), self.bot_class_22)(),
+          self.room_id_22, self.bot_token_22)
     ]  # More BotDefinition classes can be added to the definitions list
 
   def run_loop(self) -> None:
