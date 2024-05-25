@@ -325,8 +325,8 @@ class S_O_L_L_Y(BaseBot):
                 await self.highrise.chat("لم نتشرف بك ضيفا فلا تكرر زيارتنا ، لقد تم طرد المستخدم  {user.username}")
             except Exception as e:
                 print(f"حدث خطأ: {e}")
-    if user.username in user_ad:
-      if reaction == "wave" :
+    user_privileges = await self.highrise.get_room_privilege(user.id)
+    if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","youssef1230"]) and reaction == "wave" :
             try:
                 r_username = receiver.username
                 print(f"receiver: {r_username}")
