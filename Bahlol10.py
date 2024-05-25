@@ -55,6 +55,19 @@ class S_O_L_L_Y(BaseBot):
 
         # ... (ترحيبات أخرى هنا)
     ]
+    
+    dances = [ "emote-superpose", "emote-laughing", "emote-kiss", "emote-wave", "emote-teleporting", "emote-hot ", "emote-greedy", "emote-float", "emote-confused", "emote-swordfight", "emote-model", "emote-charging", "emote-snake", "emote-lust", "emote-bow", "emote-curtsy", "emote-snowball", "emote-snowangel", "emote-telekinesis", "emote-maniac", "emote-energyball", "emote-frog", "emote-cute","emote-pose7 ", "emote-pose8", "emote-pose1", "emote-pose3", "emote-timejump", "emote-sleigh", "emote-punkguitar", "emote-zombierun", "emote-fashionista", "emote-gravity", "emote-shy2",
+
+            "emoji-celebrate", "emoji-cursing", "emoji-gagging","emoji-flex",
+
+              "sit-relaxed",
+
+            "dance-macarena", "dance-weird", "dance-shoppingcart", "dance-tiktok2", "dance-russian", "dance-tiktok8", "dance-blackpink", "dance-pennywise","dance-tiktok9", "dance-tiktok10", "dance-jinglebell", "dance-pinguin", "dance-creepypuppet", "dance-icecream", "dance-wrong", "dance-anime","dance-kawai",
+
+            "idle_singing", "idle-enthusiastic", "idle-dance-casual", "idle-loop-sitfloor", "idle-nervous", "idle-toilet", "idle-uwu", "idle-dance-tiktok4 ",
+
+      # ... (أنواع الرقصات هنا)
+  ]
 
     message_count = {}
 
@@ -316,9 +329,9 @@ class S_O_L_L_Y(BaseBot):
         except Exception as e:
             print(f"Error: {e}")
 
-      if message.startswith(("Get","get","!Get","!get")):
+      if message.startswith(("Get","get","!Get","!get","جيب")):
         user_privileges = await self.highrise.get_room_privilege(user.id)
-        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y"]):
+        if (user_privileges.moderator) or (user.username in ["S_O_L_L_Y","9y2"]):
          target_username = message.split("@")[-1].strip()
          if target_username not in ["S_O_L_L_Y"]:
             await self.teleport_user_next_to(target_username, user)
@@ -513,8 +526,8 @@ class S_O_L_L_Y(BaseBot):
 
 
       #لو عايز يتبع حد
-      if message.lower().startswith(('Follow @','follow @','!Follow @','!follow @')):
-        if user.username in ["S_O_L_L_Y"]:
+      if message.lower().startswith(('Follow @','follow @','!Follow @','!follow @',"اتبع @")):
+        if user.username in ["S_O_L_L_Y","9y2"]:
           target_username = message.split("@")[1].strip()
 
           if target_username.lower() == self.following_username:
