@@ -131,9 +131,9 @@ class RunBot():
   bot_file_22 = "Bahlol6"
   bot_class_22 = "S_O_L_L_Y"
 
-  room_id_23 = "664fc6133846c1529586b370"
-  bot_token_23 = "d321534b5685915e163732958a52e5d45dedf1261c0f03c93f8193f0e3e3e3e5"
-  bot_file_23 = "Bahlol10"
+  room_id_23 = "653f3ce81dd7c761f0c55b08"
+  bot_token_23 = "f578ba564442a89d9d93cd6d3c54448929aa8ad076d7695ea7c3bc2d81db05bb"
+  bot_file_23 = "main"
   bot_class_23 = "S_O_L_L_Y"
 
 
