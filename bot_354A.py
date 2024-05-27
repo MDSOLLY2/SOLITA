@@ -48,10 +48,7 @@ class S_O_L_L_Y(BaseBot):
     "emote-bow", "emote-cursty", "dance-breakdance", "emote-creepycute","emote-headblowup","idle-guitar"
   ]
 
-  def __init__(self, bot, room_id, api_token):
-    self.bot = bot
-    self.room_id = room_id
-    self.api_token = api_token
+  def __init__(self):
     self.following_username = None
     self.food_prices = {
      "" 
@@ -66,10 +63,6 @@ class S_O_L_L_Y(BaseBot):
         await self.highrise.chat("я вернулся🤍")
     except Exception as e:
         print(f"error : {e}")
-
-  async def run(self):
-      definitions = [BotDefinition(self, self.room_id, self.api_token)]
-      await __main__.main(definitions)
 
   async def teleport_user_next_to(self, target_username: str, requester_user: User):
 

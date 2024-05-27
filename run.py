@@ -86,11 +86,11 @@ class RunBot():
   bot_file_13 = "SOLLY_GRABS"
   bot_class_13 = "S_O_L_L_Y"
 
-  room_id_14 = "664c5326e0d47e5240baf0e7"
-  bot_token_14 = "43e4724e791931b2dd281a24c0ad8508d5efd5dc8b9ad5740726ed2f8e286aa1"
-  bot_file_14 = "jaksbot"
+  room_id_14 = "653f3ce81dd7c761f0c55b08"
+  bot_token_14 = "f578ba564442a89d9d93cd6d3c54448929aa8ad076d7695ea7c3bc2d81db05bb"
+  bot_file_14 = "bot_354A"
   bot_class_14 = "S_O_L_L_Y"
-    
+
   room_id_15 = "661a23c6249b86137bd771b4"
   bot_token_15 = "435d9a847bc125ee52a9292cca6a7315565ae34c023f9241b35cfcc395967af6"
   bot_file_15 = "Bahlol44"
@@ -131,9 +131,9 @@ class RunBot():
   bot_file_22 = "Bahlol6"
   bot_class_22 = "S_O_L_L_Y"
 
-  room_id_23 = "653f3ce81dd7c761f0c55b08"
-  bot_token_23 = "f578ba564442a89d9d93cd6d3c54448929aa8ad076d7695ea7c3bc2d81db05bb"
-  bot_file_23 = "main"
+  room_id_23 = "664fc6133846c1529586b370"
+  bot_token_23 = "d321534b5685915e163732958a52e5d45dedf1261c0f03c93f8193f0e3e3e3e5"
+  bot_file_23 = "Bahlol10"
   bot_class_23 = "S_O_L_L_Y"
 
 
